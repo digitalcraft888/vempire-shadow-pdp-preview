@@ -152,9 +152,7 @@
   .trust-row div{flex:1;text-align:center;font-size:10px;letter-spacing:.04em;color:var(--text-dim);text-transform:uppercase;}
   .trust-row div b{display:block;color:var(--text);font-size:16px;margin-bottom:6px;font-weight:400;}
 
-  /* ---------- Accordion ---------- */
-  .details-section{max-width:900px;margin:0 auto;padding:0 32px 80px;}
-  @media(max-width:1100px){.details-section{padding:0 16px 60px;}}
+  /* ---------- Accordion (legacy, unused) ---------- */
   .acc-item{border-bottom:1px solid var(--line);}
   .acc-head{
     width:100%;background:none;border:none;color:var(--text);
@@ -168,6 +166,76 @@
   .acc-body-inner{padding:0 4px 24px;font-size:13.5px;line-height:1.9;color:var(--text-dim);}
   .acc-body-inner b{color:var(--text);display:block;margin-top:12px;font-weight:500;}
   .acc-body-inner b:first-child{margin-top:0;}
+
+  /* ---------- Component sections (Case / Dial / Strap) ---------- */
+  .component{
+    max-width:1400px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;
+    padding:70px 32px;border-top:1px solid var(--line);
+  }
+  .component.reverse .component-media{order:2;}
+  .component.reverse .component-copy{order:1;}
+  @media(max-width:900px){
+    .component{grid-template-columns:1fr;gap:30px;padding:50px 16px;}
+    .component.reverse .component-media{order:1;}
+    .component.reverse .component-copy{order:2;}
+  }
+  .component-media{
+    background:radial-gradient(circle,#181818,#0b0b0c);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    min-height:380px;
+  }
+  .component-media img{width:62%;object-fit:contain;}
+  .component-copy .c-index{font-size:12px;color:var(--gold);letter-spacing:.1em;margin-bottom:14px;}
+  .component-copy h2{font-size:28px;font-weight:600;margin-bottom:16px;}
+  .component-copy p{font-size:14px;line-height:1.85;color:var(--text-dim);margin-bottom:22px;}
+  .c-specs{list-style:none;}
+  .c-specs li{
+    display:flex;justify-content:space-between;
+    padding:12px 0;border-top:1px solid var(--line);
+    font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-dim);
+  }
+  .c-specs li span{color:var(--text);}
+
+  /* ---------- Specifications (tabbed) ---------- */
+  .specs-tabbed{max-width:1000px;margin:0 auto;padding:80px 32px;border-top:1px solid var(--line);}
+  @media(max-width:900px){.specs-tabbed{padding:60px 16px;}}
+  .specs-tabbed .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;text-align:center;}
+  .specs-tabbed h2{font-size:28px;font-weight:600;text-align:center;margin-bottom:36px;}
+  .tab-nav{display:flex;justify-content:center;gap:0;border-bottom:1px solid var(--line);margin-bottom:36px;}
+  .tab-btn{
+    background:none;border:none;color:var(--text-dim);cursor:pointer;
+    padding:14px 28px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    border-bottom:2px solid transparent;transition:color .2s,border-color .2s;
+  }
+  .tab-btn.active{color:var(--text);border-bottom-color:var(--gold);}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  @media(max-width:700px){.tab-panel.active{grid-template-columns:1fr;}}
+  .tab-panel .t-media{background:radial-gradient(circle,#181818,#0b0b0c);border:1px solid var(--line);min-height:280px;display:flex;align-items:center;justify-content:center;}
+  .tab-panel .t-media img{width:55%;}
+  .tab-panel ul{list-style:none;}
+  .tab-panel li{display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid var(--line);font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.03em;}
+  .tab-panel li span{color:var(--text);}
+  .tab-panel .warranty-copy h4{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin:18px 0 8px;}
+  .tab-panel .warranty-copy h4:first-child{margin-top:0;}
+  .tab-panel .warranty-copy p{font-size:13.5px;line-height:1.8;color:var(--text-dim);}
+
+  /* ---------- Help / contact section ---------- */
+  .help-cta{
+    max-width:1400px;margin:0 auto;padding:80px 32px;border-top:1px solid var(--line);
+    text-align:center;
+  }
+  .help-cta .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  .help-cta h2{font-size:28px;font-weight:600;margin-bottom:14px;}
+  .help-cta p{font-size:14px;color:var(--text-dim);max-width:480px;margin:0 auto 28px;line-height:1.7;}
+  .help-cta a{
+    display:inline-block;border:1px solid var(--gold);color:var(--gold);
+    padding:14px 36px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    transition:background .2s,color .2s;
+  }
+  .help-cta a:hover{background:var(--gold);color:var(--bg);}
 
   /* ---------- Story / editorial ---------- */
   .story{
@@ -226,7 +294,7 @@
 
   /* ---------- Footer ---------- */
   footer{border-top:1px solid var(--line);padding:60px 32px 30px;}
-  .foot-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+  .foot-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
   @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;}}
   .foot-grid .logo{font-size:18px;letter-spacing:.28em;margin-bottom:14px;}
   .foot-grid p{font-size:12.5px;color:var(--text-dim);line-height:1.7;max-width:280px;}
@@ -343,30 +411,88 @@
   </div>
 </section>
 
-<section class="details-section">
-  <div class="acc-item open">
-    <button class="acc-head" onclick="toggleAcc(this)">Material &amp; Finishing <span class="plus">+</span></button>
-    <div class="acc-body"><div class="acc-body-inner">
-      316L stainless steel case<br>316L stainless steel bracelet<br>Scratch-resistant sapphire crystal<br>Sunburst dial
-    </div></div>
+<section class="component" id="case">
+  <div class="component-media"><img src="assets/shadow-1.png" alt="SHADOW case close-up"></div>
+  <div class="component-copy">
+    <div class="c-index">01 — Case</div>
+    <h2>Case</h2>
+    <p>The 42.5 mm case in 316L stainless steel features a scratch-resistant sapphire crystal and a brushed-and-polished finish. The timepiece is water-resistant to 5 ATM.</p>
+    <ul class="c-specs">
+      <li>Material <span>316L Stainless Steel</span></li>
+      <li>Size <span>42.5 × 47 mm</span></li>
+      <li>Water Resistance <span>5 ATM</span></li>
+    </ul>
   </div>
-  <div class="acc-item">
-    <button class="acc-head" onclick="toggleAcc(this)">Movement <span class="plus">+</span></button>
-    <div class="acc-body"><div class="acc-body-inner">
-      Miyota Japanese quartz movement<br>60-second subdial at 6 o'clock<br>Luminous hands
-    </div></div>
+</section>
+
+<section class="component reverse" id="dial">
+  <div class="component-media"><img src="assets/shadow-2.png" alt="SHADOW dial close-up"></div>
+  <div class="component-copy">
+    <div class="c-index">02 — Dial</div>
+    <h2>Dial</h2>
+    <p>The black sunburst dial is complemented by red-accented hands and Roman numeral hour-markers, with a 60-second subdial at 6 o'clock and luminous coating for low-light legibility.</p>
+    <ul class="c-specs">
+      <li>Finish <span>Sunburst Black</span></li>
+      <li>Dial Opening <span>30.5 mm</span></li>
+      <li>Hands <span>Luminous</span></li>
+    </ul>
   </div>
-  <div class="acc-item">
-    <button class="acc-head" onclick="toggleAcc(this)">Specifications <span class="plus">+</span></button>
-    <div class="acc-body"><div class="acc-body-inner">
-      Water resistance: 5 ATM<br>Case size: 42.5 × 47 mm<br>Dial opening: 30.5 mm<br>Strap size: 24 × 22 mm<br>Crown size: 6 mm
-    </div></div>
+</section>
+
+<section class="component" id="strap">
+  <div class="component-media"><img src="assets/shadow-wrist.webp" alt="SHADOW bracelet worn on wrist"></div>
+  <div class="component-copy">
+    <div class="c-index">03 — Strap</div>
+    <h2>Strap</h2>
+    <p>The 316L stainless steel bracelet uses a quick-release interchangeable system, letting you switch between steel and leather strap options to match the moment.</p>
+    <ul class="c-specs">
+      <li>Material <span>316L Steel / Leather</span></li>
+      <li>Strap Size <span>24 × 22 mm</span></li>
+      <li>System <span>Quick-Release</span></li>
+    </ul>
   </div>
-  <div class="acc-item">
-    <button class="acc-head" onclick="toggleAcc(this)">Additional <span class="plus">+</span></button>
-    <div class="acc-body"><div class="acc-body-inner">
-      Interchangeable strap<br>EAN: 8721325670052
-    </div></div>
+</section>
+
+<section class="specs-tabbed">
+  <div class="eyebrow">Every Detail</div>
+  <h2>Specifications</h2>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab(this,'watch')">Watch</button>
+    <button class="tab-btn" onclick="switchTab(this,'movement')">Movement</button>
+    <button class="tab-btn" onclick="switchTab(this,'warranty')">Warranty</button>
+  </div>
+
+  <div class="tab-panel active" data-panel="watch">
+    <div class="t-media"><img src="assets/shadow-main.png" alt="SHADOW full watch"></div>
+    <ul>
+      <li>Case Material <span>316L Stainless Steel</span></li>
+      <li>Case Size <span>42.5 × 47 mm</span></li>
+      <li>Crystal <span>Sapphire</span></li>
+      <li>Dial <span>Sunburst, Black / Red</span></li>
+      <li>Water Resistance <span>5 ATM</span></li>
+      <li>Strap <span>Interchangeable, 24 × 22 mm</span></li>
+    </ul>
+  </div>
+
+  <div class="tab-panel" data-panel="movement">
+    <div class="t-media"><img src="assets/shadow-2.png" alt="SHADOW movement detail"></div>
+    <ul>
+      <li>Movement <span>Miyota Japanese Quartz</span></li>
+      <li>Functions <span>Hours, Minutes, Seconds</span></li>
+      <li>Subdial <span>60-Second, 6 O'Clock</span></li>
+      <li>Hands <span>Luminous Coating</span></li>
+      <li>Crown Size <span>6 mm</span></li>
+    </ul>
+  </div>
+
+  <div class="tab-panel" data-panel="warranty">
+    <div class="t-media"><img src="assets/shadow-1.png" alt="SHADOW warranty"></div>
+    <div class="warranty-copy">
+      <h4>2-Year International Warranty</h4>
+      <p>Every VEMPIRE timepiece is guaranteed against manufacturing defects for 2 years from date of purchase.</p>
+      <h4>14-Day Free Returns</h4>
+      <p>Not the right fit? Return within 14 days, hassle-free and fully guaranteed — no additional cost.</p>
+    </div>
   </div>
 </section>
 
@@ -444,6 +570,13 @@
   </div>
 </section>
 
+<section class="help-cta">
+  <div class="eyebrow">We're Here to Help</div>
+  <h2>Need Help Choosing Your Timepiece?</h2>
+  <p>Our team can help you find the right fit, strap and finish for your style — reach out and we'll get back within 24 hours.</p>
+  <a href="#">Contact Us</a>
+</section>
+
 <footer>
   <div class="foot-grid">
     <div>
@@ -452,15 +585,19 @@
     </div>
     <div>
       <h5>Shop</h5>
-      <ul><li>All Products</li><li>Infinite Collection</li><li>Ice Collection</li><li>Straps</li></ul>
+      <ul><li>All Products</li><li>Infinite Collection</li><li>Ice Collection</li><li>Infinite Leather</li><li>Infinite Steel</li><li>Straps</li></ul>
     </div>
     <div>
-      <h5>Learn</h5>
-      <ul><li>FAQs</li><li>Watch Care Guide</li><li>User Manual</li></ul>
+      <h5>Services</h5>
+      <ul><li>FAQs</li><li>Watch Care Guide</li><li>User Manual</li><li>Extend Warranty</li><li>Contact Us</li></ul>
+    </div>
+    <div>
+      <h5>Legal</h5>
+      <ul><li>Terms of Use</li><li>Privacy Notice</li><li>Cookie Policy</li><li>Terms of Sale</li></ul>
     </div>
     <div>
       <h5>Company</h5>
-      <ul><li>About Us</li><li>Contact</li><li>Catalog</li></ul>
+      <ul><li>About Us</li><li>Catalog</li><li>Contact</li></ul>
     </div>
   </div>
   <div class="foot-bottom">
@@ -497,12 +634,20 @@
     });
   });
 
-  // Accordion
+  // Accordion (legacy, unused)
   function toggleAcc(btn){
     const item = btn.parentElement;
     const wasOpen = item.classList.contains('open');
     document.querySelectorAll('.acc-item').forEach(i=>i.classList.remove('open'));
     if(!wasOpen) item.classList.add('open');
+  }
+
+  // Specifications tabs
+  function switchTab(btn, name){
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelector(`.tab-panel[data-panel="${name}"]`).classList.add('active');
   }
 
   // Qty stepper
