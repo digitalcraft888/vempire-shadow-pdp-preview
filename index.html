@@ -153,12 +153,27 @@
   }
   .component-copy .idx{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--gold);margin-bottom:14px;letter-spacing:.05em;}
   .component-media{
+    position:relative;
     background:radial-gradient(ellipse at 50% 45%,#19160f 0%,#0d0c0b 70%);
     display:flex;align-items:center;justify-content:center;
     min-height:440px;overflow:hidden;
   }
   .component-media img{width:70%;object-fit:contain;filter:drop-shadow(0 26px 36px rgba(0,0,0,.55));transition:transform .6s cubic-bezier(.2,.8,.2,1);}
   .component-media:hover img{transform:scale(1.05);}
+  .component-media.closeup{min-height:480px;}
+  .component-media.closeup img{
+    position:absolute;width:auto;height:210%;max-width:none;object-fit:cover;
+    filter:drop-shadow(0 20px 30px rgba(0,0,0,.5));
+  }
+  .component-media.closeup:hover img{transform:scale(1.08) var(--tf,translate(0,0));}
+  .crop-dial img{top:-58%;left:50%;transform:translateX(-50%);}
+  .crop-case img{top:-14%;left:14%;}
+  .crop-clasp img{top:-84%;left:50%;transform:translateX(-50%);}
+  .macro-tag{
+    position:absolute;bottom:20px;left:20px;z-index:2;
+    font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+    border:1px solid var(--gold-soft);padding:6px 12px;background:rgba(8,8,10,.55);backdrop-filter:blur(6px);
+  }
   .component-copy h2{
     font-family:'Cormorant Garamond',serif;font-weight:300;
     font-size:38px;letter-spacing:.01em;margin-bottom:22px;
@@ -347,13 +362,19 @@
       <li>Water Resistance <span>5 ATM</span></li>
     </ul>
   </div>
-  <div class="component-media"><img src="assets/imperial-1.png" alt="IMPERIAL case detail"></div>
+  <div class="component-media closeup crop-case">
+    <span class="macro-tag">Close-Up — Case</span>
+    <img src="assets/imperial-2.png" alt="IMPERIAL case close-up, crown and bezel">
+  </div>
 </section>
 
 <div class="hairline"></div>
 
 <section class="component reverse reveal" id="dial">
-  <div class="component-media"><img src="assets/imperial-2.png" alt="IMPERIAL dial detail"></div>
+  <div class="component-media closeup crop-dial">
+    <span class="macro-tag">Close-Up — Dial</span>
+    <img src="assets/imperial-main.png" alt="IMPERIAL dial close-up">
+  </div>
   <div class="component-copy">
     <div class="idx">02</div>
     <h2>Dial</h2>
@@ -379,7 +400,10 @@
       <li>Clasp <span>Butterfly, Quick-Release</span></li>
     </ul>
   </div>
-  <div class="component-media"><img src="assets/imperial-main.png" alt="IMPERIAL bracelet detail"></div>
+  <div class="component-media closeup crop-clasp">
+    <span class="macro-tag">Close-Up — Clasp</span>
+    <img src="assets/imperial-1.png" alt="IMPERIAL clasp close-up">
+  </div>
 </section>
 
 <section class="specs-tabbed reveal">
