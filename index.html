@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHADOW — Black / Red | VEMPIRE</title>
+<title>IMPERIAL — Green / Gold | VEMPIRE</title>
 <style>
   :root{
-    --bg:#0b0b0c;
-    --bg-elev:#141416;
-    --line:#232326;
-    --text:#f2f0ec;
-    --text-dim:#9a9691;
-    --accent:#c81e2c;
-    --gold:#b89b6b;
+    --bg:#0a0a0b;
+    --bg-elev:#131314;
+    --line:#211f1a;
+    --text:#f3f1ec;
+    --text-dim:#96938c;
+    --gold:#c6a668;
+    --gold-dim:#8a7548;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
@@ -31,113 +31,125 @@
     background:var(--bg);border-bottom:1px solid var(--line);
   }
   .nav{
-    max-width:1400px;margin:0 auto;
+    max-width:1440px;margin:0 auto;
     display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-    padding:18px 32px;
+    padding:20px 32px;
   }
-  .nav .burger{font-size:18px;cursor:pointer;justify-self:start;}
-  .nav .logo{font-size:15px;letter-spacing:.3em;font-weight:600;justify-self:center;}
-  .nav .icons{display:flex;gap:18px;align-items:center;justify-self:end;font-size:13px;color:var(--text-dim);}
+  .nav .burger{font-size:18px;cursor:pointer;justify-self:start;color:var(--text-dim);}
+  .nav .logo{font-size:15px;letter-spacing:.34em;font-weight:600;justify-self:center;}
+  .nav .icons{display:flex;gap:20px;align-items:center;justify-self:end;font-size:13px;color:var(--text-dim);}
 
   /* ---------- Hero ---------- */
   .hero{
-    max-width:1400px;margin:0 auto;
-    display:grid;grid-template-columns:1fr 1fr;gap:20px;
-    padding:50px 32px 0;
+    max-width:1440px;margin:0 auto;
+    display:grid;grid-template-columns:.85fr 1.15fr;gap:20px;
+    padding:64px 32px 0;
   }
-  @media(max-width:900px){ .hero{grid-template-columns:1fr;padding:30px 16px 0;} }
-  .hero-copy{padding-top:20px;}
-  .hero-copy .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-  .hero-copy h1{font-size:30px;font-weight:300;letter-spacing:.02em;line-height:1.2;margin-bottom:26px;}
+  @media(max-width:900px){ .hero{grid-template-columns:1fr;padding:36px 16px 0;} }
+  .hero-copy{padding-top:32px;}
+  .hero-copy .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  .hero-copy h1{font-size:34px;font-weight:300;letter-spacing:.01em;line-height:1.18;margin-bottom:30px;}
   .hero-copy h1 b{display:block;font-weight:600;}
-  .hero-copy .ref-price{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--text-dim);margin-bottom:26px;text-transform:uppercase;letter-spacing:.04em;}
-  .hero-copy .ref-price .price{color:var(--text);font-weight:600;font-size:15px;}
+  .hero-copy .ref-price{display:flex;align-items:center;gap:16px;font-size:12.5px;color:var(--text-dim);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em;}
+  .hero-copy .price-block{display:flex;align-items:baseline;gap:12px;margin-bottom:32px;}
+  .hero-copy .price{color:var(--text);font-weight:600;font-size:20px;}
+  .hero-copy .price-was{color:var(--text-dim);font-size:13px;text-decoration:line-through;}
   .hero-cta{
     display:inline-block;background:var(--text);color:var(--bg);border:none;
-    padding:15px 34px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-    cursor:pointer;margin-bottom:40px;transition:background .2s;
+    padding:16px 38px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    cursor:pointer;margin-bottom:44px;transition:background .25s,color .25s;
   }
   .hero-cta:hover{background:var(--gold);}
   .hero-img{
     display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 50% 40%,#1a1a1d,#0b0b0c);
-    min-height:460px;
+    background:radial-gradient(ellipse at 50% 45%,#1c1a14 0%,#0a0a0b 68%);
+    min-height:520px;position:relative;
   }
-  .hero-img img{width:60%;object-fit:contain;}
-  .hero-desc{
-    max-width:1400px;margin:0 auto;padding:0 32px 60px;
-  }
-  @media(max-width:900px){ .hero-desc{padding:0 16px 40px;} }
-  .hero-desc p{max-width:640px;font-size:14px;line-height:1.85;color:var(--text-dim);}
+  .hero-img img{width:56%;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));}
+  .hero-desc{max-width:1440px;margin:0 auto;padding:0 32px 70px;}
+  @media(max-width:900px){ .hero-desc{padding:0 16px 46px;} }
+  .hero-desc p{max-width:640px;font-size:14.5px;line-height:1.9;color:var(--text-dim);}
 
-  /* ---------- Full-bleed dial ---------- */
-  .full-bleed{width:100%;height:82vh;min-height:480px;overflow:hidden;}
-  .full-bleed img{width:100%;height:100%;object-fit:cover;}
+  /* ---------- Showcase (premium centered display, replaces full-bleed) ---------- */
+  .showcase{
+    width:100%;min-height:78vh;
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(ellipse at 50% 50%,#181510 0%,#0a0a0b 62%);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:60px 32px;
+  }
+  .showcase img{width:min(46%,480px);object-fit:contain;filter:drop-shadow(0 40px 60px rgba(0,0,0,.6));}
 
   /* ---------- Component sections (Case / Dial / Bracelet) ---------- */
   .component{
-    max-width:1400px;margin:0 auto;
-    display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;
-    padding:90px 32px;
+    max-width:1440px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:70px;
+    padding:100px 32px;
   }
   .component.reverse .component-media{order:2;}
   .component.reverse .component-copy{order:1;}
   @media(max-width:900px){
-    .component{grid-template-columns:1fr;gap:30px;padding:60px 16px;}
+    .component{grid-template-columns:1fr;gap:34px;padding:64px 16px;}
     .component.reverse .component-media{order:1;}
     .component.reverse .component-copy{order:2;}
   }
   .component-media{
-    background:radial-gradient(circle,#181818,#0b0b0c);
+    background:radial-gradient(ellipse at 50% 45%,#181510 0%,#0e0d0c 70%);
     display:flex;align-items:center;justify-content:center;
-    min-height:400px;
+    min-height:420px;
   }
-  .component-media img{width:64%;object-fit:contain;}
-  .component-copy h2{font-size:26px;font-weight:300;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px;}
-  .component-copy p{font-size:14px;line-height:1.9;color:var(--text-dim);margin-bottom:22px;max-width:380px;}
+  .component-media img{width:60%;object-fit:contain;filter:drop-shadow(0 24px 34px rgba(0,0,0,.55));}
+  .component-copy h2{font-size:27px;font-weight:300;letter-spacing:.07em;text-transform:uppercase;margin-bottom:20px;}
+  .component-copy p{font-size:14px;line-height:1.95;color:var(--text-dim);margin-bottom:26px;max-width:380px;}
   .c-specs{list-style:none;max-width:340px;}
   .c-specs li{
     display:flex;justify-content:space-between;
-    padding:12px 0;border-top:1px solid var(--line);
+    padding:13px 0;border-top:1px solid var(--line);
     font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-dim);
   }
   .c-specs li span{color:var(--text);}
 
   /* ---------- Specifications (tabbed) ---------- */
-  .specs-tabbed{max-width:1100px;margin:0 auto;padding:90px 32px;border-top:1px solid var(--line);}
-  @media(max-width:900px){.specs-tabbed{padding:60px 16px;}}
-  .specs-tabbed h2{font-size:26px;font-weight:300;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;}
-  .specs-tabbed .guide-link{font-size:11px;color:var(--gold);text-decoration:underline;text-underline-offset:3px;margin-bottom:30px;display:inline-block;}
-  .tab-nav{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:40px;}
+  .specs-tabbed{max-width:1120px;margin:0 auto;padding:100px 32px;border-top:1px solid var(--line);}
+  @media(max-width:900px){.specs-tabbed{padding:64px 16px;}}
+  .specs-tabbed h2{font-size:27px;font-weight:300;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px;}
+  .specs-tabbed .guide-link{font-size:11px;color:var(--gold);text-decoration:underline;text-underline-offset:3px;margin-bottom:34px;display:inline-block;}
+  .tab-nav{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:44px;}
   .tab-btn{
     background:none;border:none;color:var(--text-dim);cursor:pointer;
-    padding:12px 0;margin-right:30px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    padding:13px 0;margin-right:34px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
     border-bottom:2px solid transparent;transition:color .2s,border-color .2s;
   }
   .tab-btn.active{color:var(--text);border-bottom-color:var(--gold);}
   .tab-panel{display:none;}
   .tab-panel.active{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:center;}
   @media(max-width:800px){.tab-panel.active{grid-template-columns:1fr;}}
-  .tab-panel .t-media{background:radial-gradient(circle,#181818,#0b0b0c);min-height:300px;display:flex;align-items:center;justify-content:center;}
-  .tab-panel .t-media img{width:58%;}
-  .tab-col h5{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+  .tab-panel .t-media{
+    background:radial-gradient(ellipse at 50% 45%,#181510 0%,#0e0d0c 70%);
+    min-height:300px;display:flex;align-items:center;justify-content:center;
+  }
+  .tab-panel .t-media img{width:54%;filter:drop-shadow(0 18px 26px rgba(0,0,0,.5));}
+  .tab-col h5{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
   .tab-panel ul{list-style:none;}
-  .tab-panel li{display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid var(--line);font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.02em;}
+  .tab-panel li{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line);font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.02em;}
   .tab-panel li span{color:var(--text);}
 
   /* ---------- Others you might like ---------- */
-  .related{max-width:1400px;margin:0 auto;padding:90px 32px;border-top:1px solid var(--line);}
-  @media(max-width:900px){.related{padding:60px 16px;}}
-  .related-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;}
-  .related-head h2{font-size:26px;font-weight:300;letter-spacing:.06em;text-transform:uppercase;line-height:1.3;}
+  .related{max-width:1440px;margin:0 auto;padding:100px 32px;border-top:1px solid var(--line);}
+  @media(max-width:900px){.related{padding:64px 16px;}}
+  .related-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;}
+  .related-head h2{font-size:27px;font-weight:300;letter-spacing:.07em;text-transform:uppercase;line-height:1.3;}
   .related-head h2 b{display:block;font-weight:600;}
   .related-head a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);border-bottom:1px solid var(--line);padding-bottom:4px;white-space:nowrap;}
-  .related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
   @media(max-width:900px){.related-grid{grid-template-columns:repeat(2,1fr);}}
-  .rcard .rimg{height:240px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#191919,#0b0b0c);}
-  .rcard .rimg img{width:58%;object-fit:contain;}
+  .rcard .rimg{
+    height:250px;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(ellipse at 50% 45%,#161410 0%,#0e0d0c 72%);
+  }
+  .rcard .rimg img{width:54%;object-fit:contain;filter:drop-shadow(0 16px 22px rgba(0,0,0,.5));}
   .rcard .rinfo{padding:16px 4px;}
-  .rcard .rinfo .name{font-size:12px;letter-spacing:.03em;margin-bottom:6px;text-transform:uppercase;}
+  .rcard .rinfo .name{font-size:12px;letter-spacing:.04em;margin-bottom:6px;text-transform:uppercase;}
   .rcard .rinfo .rprice{font-size:12.5px;color:var(--gold);}
 
   /* ---------- Worldwide shipping (locator-style) ---------- */
@@ -148,44 +160,44 @@
     background:var(--bg);display:flex;flex-direction:column;justify-content:center;
     padding:50px 40px;z-index:2;
   }
-  .locator-panel h2{font-size:26px;font-weight:300;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px;line-height:1.3;}
+  .locator-panel h2{font-size:27px;font-weight:300;letter-spacing:.07em;text-transform:uppercase;margin-bottom:20px;line-height:1.3;}
   .locator-panel h2 b{display:block;font-weight:600;}
   .locator-panel a{
     display:inline-block;border:1px solid var(--text);color:var(--text);
-    padding:13px 30px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;width:fit-content;
+    padding:14px 32px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;width:fit-content;
     transition:background .2s,color .2s;
   }
   .locator-panel a:hover{background:var(--text);color:var(--bg);}
 
   /* ---------- Footer ---------- */
-  footer{border-top:1px solid var(--line);padding:50px 32px 26px;}
-  .foot-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:36px;}
+  footer{border-top:1px solid var(--line);padding:56px 32px 28px;}
+  .foot-grid{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:40px;}
   @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;}}
-  .foot-grid h5{font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;color:var(--gold);}
+  .foot-grid h5{font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;color:var(--gold);}
   .foot-grid ul{list-style:none;}
-  .foot-grid li{margin-bottom:10px;font-size:12.5px;color:var(--text-dim);}
+  .foot-grid li{margin-bottom:11px;font-size:12.5px;color:var(--text-dim);}
   .foot-grid li:hover{color:var(--text);}
   .foot-bottom{
-    max-width:1400px;margin:0 auto;padding-top:22px;border-top:1px solid var(--line);
+    max-width:1440px;margin:0 auto;padding-top:24px;border-top:1px solid var(--line);
     display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text-dim);flex-wrap:wrap;gap:10px;
   }
-  .foot-social{display:flex;gap:14px;}
+  .foot-social{display:flex;gap:16px;}
 
   /* ---------- Sticky buy bar ---------- */
   .sticky-bar{
     position:fixed;bottom:0;left:0;right:0;z-index:60;
-    background:rgba(11,11,12,.96);backdrop-filter:blur(10px);
+    background:rgba(10,10,11,.97);backdrop-filter:blur(10px);
     border-top:1px solid var(--line);
     padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;
     transform:translateY(100%);transition:transform .3s ease;
   }
   .sticky-bar.show{transform:translateY(0);}
   .sticky-bar .sb-left{display:flex;align-items:center;gap:14px;}
-  .sticky-bar .sb-left img{width:42px;height:42px;object-fit:contain;background:var(--bg-elev);padding:4px;}
+  .sticky-bar .sb-left .simg{width:46px;height:46px;object-fit:contain;background:var(--bg-elev);padding:4px;}
   .sticky-bar .sb-left .n{font-size:12.5px;}
   .sticky-bar .sb-left .p{font-size:12px;color:var(--gold);}
   .sticky-bar button{
-    background:var(--text);color:var(--bg);border:none;padding:14px 28px;
+    background:var(--text);color:var(--bg);border:none;padding:14px 30px;
     font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;
   }
   @media(max-width:600px){ .sticky-bar .n{display:none;} .locator-panel{width:100%;max-width:100%;} }
@@ -208,46 +220,49 @@
 <section class="hero" id="pdp-top">
   <div class="hero-copy">
     <div class="eyebrow">Infinite Steel Collection</div>
-    <h1>SHADOW<b>Black / Red</b></h1>
+    <h1>IMPERIAL<b>Green / Gold</b></h1>
     <div class="ref-price">
-      <span>Ref. VMP-SHDW-BKRD</span>
-      <span class="price">€299,00</span>
+      <span>Ref. VMP-IMP-GRGD</span>
     </div>
-    <button class="hero-cta" id="addCartTop">Add to Cart</button>
+    <div class="price-block">
+      <span class="price">€299,00</span>
+      <span class="price-was">€389,00</span>
+    </div>
+    <button class="hero-cta">Add to Cart</button>
   </div>
   <div class="hero-img">
-    <img src="assets/shadow-main-lg.png" alt="SHADOW — Black / Red">
+    <img src="assets/imperial-main.png" alt="IMPERIAL — Green / Gold">
   </div>
 </section>
 
 <div class="hero-desc">
-  <p>SHADOW moves through darkness with sharp contrast. Featuring a black sunburst dial with red accents, a 316L stainless steel case and bracelet, and a scratch-resistant sapphire crystal — an expression of quiet authority and everyday precision.</p>
+  <p>IMPERIAL commands attention with bold authority. Featuring a green sunburst dial, a gold-toned stainless steel case and bracelet, and a scratch-resistant sapphire crystal — built for durability, control, and quiet dominance.</p>
 </div>
 
-<div class="full-bleed">
-  <img src="assets/shadow-2-xl.png" alt="SHADOW dial detail, full view">
+<div class="showcase">
+  <img src="assets/imperial-2.png" alt="IMPERIAL dial detail">
 </div>
 
 <section class="component" id="case">
   <div class="component-copy">
     <h2>Case</h2>
-    <p>The 42.5 mm case in 316L stainless steel features a scratch-resistant sapphire crystal and a brushed-and-polished finish. The timepiece is water-resistant to 5 ATM.</p>
+    <p>The 42.5 mm case in gold-toned 316L stainless steel features a scratch-resistant sapphire crystal and a brushed-and-polished finish. The timepiece is water-resistant to 5 ATM.</p>
     <ul class="c-specs">
       <li>Size <span>42.5 mm</span></li>
       <li>Thickness <span>12 mm</span></li>
       <li>Water Resistance <span>5 ATM</span></li>
     </ul>
   </div>
-  <div class="component-media"><img src="assets/shadow-1.png" alt="SHADOW case close-up"></div>
+  <div class="component-media"><img src="assets/imperial-1.png" alt="IMPERIAL case detail"></div>
 </section>
 
 <section class="component reverse" id="dial">
-  <div class="component-media"><img src="assets/shadow-2.png" alt="SHADOW dial close-up"></div>
+  <div class="component-media"><img src="assets/imperial-2.png" alt="IMPERIAL dial detail"></div>
   <div class="component-copy">
     <h2>Dial</h2>
-    <p>The black sunburst dial is complemented by red-accented hands and Roman numeral hour-markers filled with luminescent material, framed by a 60-second subdial at 6 o'clock.</p>
+    <p>The green sunburst dial is complemented by gold-toned hands and Roman numeral hour-markers filled with luminescent material, framed by a 60-second subdial at 6 o'clock.</p>
     <ul class="c-specs">
-      <li>Finish <span>Sunburst Black</span></li>
+      <li>Finish <span>Sunburst Green</span></li>
       <li>Dial Opening <span>30.5 mm</span></li>
       <li>Hands <span>Luminous</span></li>
     </ul>
@@ -257,14 +272,14 @@
 <section class="component" id="bracelet">
   <div class="component-copy">
     <h2>Bracelet</h2>
-    <p>The 316L stainless steel bracelet is fitted with a quick-release interchangeable system, secured by a butterfly clasp for a comfortable, balanced fit.</p>
+    <p>The gold-toned 316L stainless steel bracelet is fitted with a quick-release interchangeable system, secured by a butterfly clasp for a comfortable, balanced fit.</p>
     <ul class="c-specs">
       <li>Material <span>316L Stainless Steel</span></li>
       <li>Strap Size <span>24 × 22 mm</span></li>
       <li>Clasp <span>Butterfly, Quick-Release</span></li>
     </ul>
   </div>
-  <div class="component-media"><img src="assets/shadow-wrist.webp" alt="SHADOW bracelet worn on wrist"></div>
+  <div class="component-media"><img src="assets/imperial-main.png" alt="IMPERIAL bracelet detail"></div>
 </section>
 
 <section class="specs-tabbed">
@@ -280,16 +295,16 @@
     <div class="tab-col">
       <h5>Case</h5>
       <ul>
-        <li>Material <span>316L Steel</span></li>
+        <li>Material <span>316L Steel, Gold-Tone</span></li>
         <li>Water Resistance <span>5 ATM</span></li>
         <li>Size <span>42.5 mm</span></li>
       </ul>
     </div>
-    <div class="t-media"><img src="assets/shadow-main.png" alt="SHADOW full watch"></div>
+    <div class="t-media"><img src="assets/imperial-main.png" alt="IMPERIAL full watch"></div>
     <div class="tab-col">
       <h5>Dial &amp; Bracelet</h5>
       <ul>
-        <li>Dial <span>Sunburst, Black / Red</span></li>
+        <li>Dial <span>Sunburst, Green</span></li>
         <li>Crystal <span>Sapphire</span></li>
         <li>Bracelet <span>316L Steel, Interchangeable</span></li>
       </ul>
@@ -304,7 +319,7 @@
         <li>Functions <span>Hours, Minutes, Seconds</span></li>
       </ul>
     </div>
-    <div class="t-media"><img src="assets/shadow-2.png" alt="SHADOW movement detail"></div>
+    <div class="t-media"><img src="assets/imperial-2.png" alt="IMPERIAL movement detail"></div>
     <div class="tab-col">
       <h5>Details</h5>
       <ul>
@@ -322,7 +337,7 @@
         <li>Region <span>International</span></li>
       </ul>
     </div>
-    <div class="t-media"><img src="assets/shadow-1.png" alt="SHADOW warranty"></div>
+    <div class="t-media"><img src="assets/imperial-1.png" alt="IMPERIAL warranty"></div>
     <div class="tab-col">
       <h5>Returns</h5>
       <ul>
@@ -340,19 +355,19 @@
   </div>
   <div class="related-grid">
     <div class="rcard">
-      <div class="rimg"><img src="assets/rel-imperial.png" alt="Imperial"></div>
-      <div class="rinfo"><div class="name">Imperial — Green / Gold</div><div class="rprice">€289,00</div></div>
+      <div class="rimg"><img src="assets/rel-onyx-t.png" alt="Onyx"></div>
+      <div class="rinfo"><div class="name">Onyx — Black / Gold</div><div class="rprice">€229,00</div></div>
     </div>
     <div class="rcard">
-      <div class="rimg"><img src="assets/rel-azure.jpg" alt="Azure"></div>
-      <div class="rinfo"><div class="name">Azure — Blue / Silver</div><div class="rprice">€279,00</div></div>
+      <div class="rimg"><img src="assets/rel-phoenix-t.png" alt="Phoenix"></div>
+      <div class="rinfo"><div class="name">Phoenix — Red / Rose Gold</div><div class="rprice">€289,00</div></div>
     </div>
     <div class="rcard">
-      <div class="rimg"><img src="assets/rel-phoenix.png" alt="Phoenix"></div>
-      <div class="rinfo"><div class="name">Phoenix — Red / Rose Gold</div><div class="rprice">€239,00</div></div>
+      <div class="rimg"><img src="assets/rel-orion-t.png" alt="Orion"></div>
+      <div class="rinfo"><div class="name">Orion — Blue / Gold</div><div class="rprice">€289,00</div></div>
     </div>
     <div class="rcard">
-      <div class="rimg"><img src="assets/rel-venom.png" alt="Venom"></div>
+      <div class="rimg"><img src="assets/rel-venom-t.png" alt="Venom"></div>
       <div class="rinfo"><div class="name">Venom — Green / Gold</div><div class="rprice">€289,00</div></div>
     </div>
   </div>
@@ -360,18 +375,18 @@
 
 <section class="locator">
   <svg viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <rect width="800" height="420" fill="#141416"/>
-    <g fill="#232326">
+    <rect width="800" height="420" fill="#131314"/>
+    <g fill="#211f1a">
       <circle cx="40" cy="60" r="3"/><circle cx="60" cy="70" r="3"/><circle cx="80" cy="55" r="3"/><circle cx="100" cy="75" r="3"/><circle cx="120" cy="60" r="3"/><circle cx="140" cy="80" r="3"/><circle cx="160" cy="65" r="3"/><circle cx="180" cy="85" r="3"/><circle cx="200" cy="70" r="3"/><circle cx="220" cy="90" r="3"/><circle cx="240" cy="75" r="3"/><circle cx="260" cy="95" r="3"/><circle cx="280" cy="80" r="3"/><circle cx="300" cy="100" r="3"/><circle cx="320" cy="85" r="3"/><circle cx="340" cy="105" r="3"/><circle cx="360" cy="90" r="3"/><circle cx="380" cy="110" r="3"/><circle cx="400" cy="95" r="3"/><circle cx="420" cy="115" r="3"/><circle cx="440" cy="100" r="3"/><circle cx="460" cy="120" r="3"/><circle cx="480" cy="105" r="3"/><circle cx="500" cy="125" r="3"/><circle cx="520" cy="110" r="3"/><circle cx="540" cy="130" r="3"/><circle cx="560" cy="115" r="3"/><circle cx="580" cy="135" r="3"/><circle cx="600" cy="120" r="3"/><circle cx="620" cy="140" r="3"/><circle cx="640" cy="125" r="3"/><circle cx="660" cy="145" r="3"/><circle cx="680" cy="130" r="3"/><circle cx="700" cy="150" r="3"/><circle cx="720" cy="135" r="3"/><circle cx="740" cy="155" r="3"/><circle cx="760" cy="140" r="3"/>
       <circle cx="50" cy="160" r="3"/><circle cx="90" cy="170" r="3"/><circle cx="130" cy="155" r="3"/><circle cx="170" cy="175" r="3"/><circle cx="210" cy="160" r="3"/><circle cx="250" cy="180" r="3"/><circle cx="290" cy="165" r="3"/><circle cx="330" cy="185" r="3"/><circle cx="370" cy="170" r="3"/><circle cx="410" cy="190" r="3"/><circle cx="450" cy="175" r="3"/><circle cx="490" cy="195" r="3"/><circle cx="530" cy="180" r="3"/><circle cx="570" cy="200" r="3"/><circle cx="610" cy="185" r="3"/><circle cx="650" cy="205" r="3"/><circle cx="690" cy="190" r="3"/><circle cx="730" cy="210" r="3"/>
       <circle cx="70" cy="230" r="3"/><circle cx="110" cy="245" r="3"/><circle cx="150" cy="230" r="3"/><circle cx="190" cy="250" r="3"/><circle cx="230" cy="235" r="3"/><circle cx="270" cy="255" r="3"/><circle cx="310" cy="240" r="3"/><circle cx="350" cy="260" r="3"/><circle cx="390" cy="245" r="3"/><circle cx="430" cy="265" r="3"/><circle cx="470" cy="250" r="3"/><circle cx="510" cy="270" r="3"/><circle cx="550" cy="255" r="3"/><circle cx="590" cy="275" r="3"/><circle cx="630" cy="260" r="3"/><circle cx="670" cy="280" r="3"/><circle cx="710" cy="265" r="3"/>
       <circle cx="100" cy="310" r="3"/><circle cx="150" cy="320" r="3"/><circle cx="200" cy="305" r="3"/><circle cx="250" cy="325" r="3"/><circle cx="300" cy="310" r="3"/><circle cx="350" cy="330" r="3"/><circle cx="400" cy="315" r="3"/><circle cx="450" cy="335" r="3"/><circle cx="500" cy="320" r="3"/><circle cx="550" cy="340" r="3"/><circle cx="600" cy="325" r="3"/><circle cx="650" cy="345" r="3"/>
     </g>
-    <circle cx="180" cy="150" r="6" fill="#b89b6b"/>
-    <circle cx="420" cy="200" r="6" fill="#b89b6b"/>
-    <circle cx="600" cy="170" r="6" fill="#b89b6b"/>
-    <circle cx="660" cy="260" r="6" fill="#b89b6b"/>
-    <circle cx="340" cy="270" r="6" fill="#b89b6b"/>
+    <circle cx="180" cy="150" r="6" fill="#c6a668"/>
+    <circle cx="420" cy="200" r="6" fill="#c6a668"/>
+    <circle cx="600" cy="170" r="6" fill="#c6a668"/>
+    <circle cx="660" cy="260" r="6" fill="#c6a668"/>
+    <circle cx="340" cy="270" r="6" fill="#c6a668"/>
   </svg>
   <div class="locator-panel">
     <h2>Worldwide<b>Shipping</b></h2>
@@ -408,14 +423,13 @@
 
 <div class="sticky-bar" id="stickyBar">
   <div class="sb-left">
-    <img src="assets/shadow-main.png" alt="Shadow">
-    <div><div class="n">SHADOW — Black / Red</div><div class="p">€299,00</div></div>
+    <img class="simg" src="assets/imperial-main.png" alt="Imperial">
+    <div><div class="n">IMPERIAL — Green / Gold</div><div class="p">€299,00</div></div>
   </div>
-  <button id="addCartSticky">Add to Cart</button>
+  <button>Add to Cart</button>
 </div>
 
 <script>
-  // Specifications tabs
   function switchTab(btn, name){
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
     document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
@@ -423,7 +437,6 @@
     document.querySelector(`.tab-panel[data-panel="${name}"]`).classList.add('active');
   }
 
-  // Sticky bar on scroll past hero
   const bar = document.getElementById('stickyBar');
   const pdpTop = document.getElementById('pdp-top');
   window.addEventListener('scroll', ()=>{
