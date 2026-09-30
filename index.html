@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHADOW — BLACK / RED | VEMPIRE</title>
+<title>SHADOW — Black / Red | VEMPIRE</title>
 <style>
   :root{
     --bg:#0b0b0c;
@@ -13,7 +13,6 @@
     --text-dim:#9a9691;
     --accent:#c81e2c;
     --gold:#b89b6b;
-    --white:#ffffff;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
@@ -26,284 +25,151 @@
   a{color:inherit;text-decoration:none;}
   img{display:block;max-width:100%;}
 
-  /* ---------- Top bar ---------- */
-  .announce{
-    background:var(--accent);
-    color:#fff;
-    text-align:center;
-    font-size:11px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    padding:8px 12px;
-  }
+  /* ---------- Header ---------- */
   header{
     position:sticky;top:0;z-index:50;
-    background:rgba(11,11,12,.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
+    background:var(--bg);border-bottom:1px solid var(--line);
   }
   .nav{
     max-width:1400px;margin:0 auto;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:16px 32px;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:18px 32px;
   }
-  .nav .logo{
-    font-size:20px;letter-spacing:.32em;font-weight:600;
-  }
-  .nav .links{display:flex;gap:32px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);}
-  .nav .links a:hover{color:var(--text);}
-  .nav .icons{display:flex;gap:20px;align-items:center;}
-  .nav .icons span{font-size:13px;color:var(--text-dim);cursor:pointer;}
-  @media(max-width:900px){ .nav .links{display:none;} }
+  .nav .burger{font-size:18px;cursor:pointer;justify-self:start;}
+  .nav .logo{font-size:15px;letter-spacing:.3em;font-weight:600;justify-self:center;}
+  .nav .icons{display:flex;gap:18px;align-items:center;justify-self:end;font-size:13px;color:var(--text-dim);}
 
-  /* ---------- Breadcrumb ---------- */
-  .crumb{
-    max-width:1400px;margin:0 auto;padding:18px 32px 0;
-    font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);
-  }
-  .crumb a:hover{color:var(--text);}
-
-  /* ---------- Product hero (gallery + buy panel) ---------- */
-  .pdp{
+  /* ---------- Hero ---------- */
+  .hero{
     max-width:1400px;margin:0 auto;
-    display:grid;grid-template-columns:76px 1fr 460px;gap:24px;
-    padding:24px 32px 60px;
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+    padding:50px 32px 0;
   }
-  @media(max-width:1100px){
-    .pdp{grid-template-columns:1fr;padding:16px 16px 40px;}
+  @media(max-width:900px){ .hero{grid-template-columns:1fr;padding:30px 16px 0;} }
+  .hero-copy{padding-top:20px;}
+  .hero-copy .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .hero-copy h1{font-size:30px;font-weight:300;letter-spacing:.02em;line-height:1.2;margin-bottom:26px;}
+  .hero-copy h1 b{display:block;font-weight:600;}
+  .hero-copy .ref-price{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--text-dim);margin-bottom:26px;text-transform:uppercase;letter-spacing:.04em;}
+  .hero-copy .ref-price .price{color:var(--text);font-weight:600;font-size:15px;}
+  .hero-cta{
+    display:inline-block;background:var(--text);color:var(--bg);border:none;
+    padding:15px 34px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    cursor:pointer;margin-bottom:40px;transition:background .2s;
   }
-
-  .thumbs{
-    display:flex;flex-direction:column;gap:12px;
-    position:sticky;top:90px;height:fit-content;
-  }
-  @media(max-width:1100px){ .thumbs{flex-direction:row;overflow-x:auto;position:static;} }
-  .thumb{
-    width:72px;height:72px;border:1px solid var(--line);
-    background:var(--bg-elev);cursor:pointer;
+  .hero-cta:hover{background:var(--gold);}
+  .hero-img{
     display:flex;align-items:center;justify-content:center;
-    transition:border-color .2s;flex:none;
+    background:radial-gradient(circle at 50% 40%,#1a1a1d,#0b0b0c);
+    min-height:460px;
   }
-  .thumb img{width:78%;height:78%;object-fit:contain;}
-  .thumb.active{border-color:var(--gold);}
+  .hero-img img{width:60%;object-fit:contain;}
+  .hero-desc{
+    max-width:1400px;margin:0 auto;padding:0 32px 60px;
+  }
+  @media(max-width:900px){ .hero-desc{padding:0 16px 40px;} }
+  .hero-desc p{max-width:640px;font-size:14px;line-height:1.85;color:var(--text-dim);}
 
-  .gallery-main{
-    position:relative;background:radial-gradient(circle at 50% 40%,#1a1a1d,#0b0b0c);
-    border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;
-    min-height:640px;overflow:hidden;cursor:zoom-in;
-  }
-  .gallery-main img{
-    width:70%;object-fit:contain;transition:transform .35s ease;
-  }
-  .gallery-main:hover img{transform:scale(1.08);}
-  .gallery-badge{
-    position:absolute;top:20px;left:20px;
-    font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-    background:var(--accent);color:#fff;padding:6px 10px;
-  }
-  .gallery-dots{
-    position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
-    display:flex;gap:6px;
-  }
-  .gallery-dots span{width:6px;height:6px;border-radius:50%;background:var(--line);}
-  .gallery-dots span.active{background:var(--gold);}
+  /* ---------- Full-bleed dial ---------- */
+  .full-bleed{width:100%;height:82vh;min-height:480px;overflow:hidden;}
+  .full-bleed img{width:100%;height:100%;object-fit:cover;}
 
-  /* Buy panel */
-  .buy-panel{position:sticky;top:90px;height:fit-content;}
-  .buy-panel .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-  .buy-panel h1{font-size:28px;font-weight:600;letter-spacing:.02em;line-height:1.25;margin-bottom:10px;}
-  .stars{color:var(--gold);font-size:13px;margin-bottom:14px;}
-  .stars span{color:var(--text-dim);margin-left:6px;font-size:12px;}
-  .price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;}
-  .price{font-size:24px;font-weight:600;}
-  .stock{
-    font-size:12px;color:var(--accent);border:1px solid rgba(200,30,44,.4);
-    display:inline-block;padding:4px 10px;margin-bottom:20px;letter-spacing:.04em;
-  }
-  .desc{font-size:14px;line-height:1.7;color:var(--text-dim);margin-bottom:26px;}
-
-  .variant-block{margin-bottom:22px;}
-  .variant-block .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;display:flex;justify-content:space-between;}
-  .variant-block .label b{color:var(--text);font-weight:500;}
-  .swatches{display:flex;gap:10px;flex-wrap:wrap;}
-  .swatch{
-    width:52px;height:52px;border:1px solid var(--line);background:var(--bg-elev);
-    padding:4px;cursor:pointer;transition:border-color .2s;
-  }
-  .swatch img{width:100%;height:100%;object-fit:contain;}
-  .swatch.active{border-color:var(--gold);}
-
-  .qty-cart{display:flex;gap:12px;margin-bottom:16px;}
-  .qty{
-    display:flex;align-items:center;border:1px solid var(--line);
-  }
-  .qty button{background:none;border:none;color:var(--text);width:40px;height:52px;font-size:16px;cursor:pointer;}
-  .qty span{width:32px;text-align:center;font-size:14px;}
-  .add-cart{
-    flex:1;background:var(--text);color:var(--bg);border:none;
-    height:52px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-    cursor:pointer;transition:background .2s;
-  }
-  .add-cart:hover{background:var(--gold);}
-  .buy-note{font-size:11px;color:var(--text-dim);text-align:center;margin-bottom:24px;}
-
-  .trust-row{display:flex;gap:18px;padding-top:20px;border-top:1px solid var(--line);}
-  .trust-row div{flex:1;text-align:center;font-size:10px;letter-spacing:.04em;color:var(--text-dim);text-transform:uppercase;}
-  .trust-row div b{display:block;color:var(--text);font-size:16px;margin-bottom:6px;font-weight:400;}
-
-  /* ---------- Accordion (legacy, unused) ---------- */
-  .acc-item{border-bottom:1px solid var(--line);}
-  .acc-head{
-    width:100%;background:none;border:none;color:var(--text);
-    display:flex;justify-content:space-between;align-items:center;
-    padding:22px 4px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
-  }
-  .acc-head .plus{font-size:18px;color:var(--gold);transition:transform .25s;}
-  .acc-item.open .plus{transform:rotate(45deg);}
-  .acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease;}
-  .acc-item.open .acc-body{max-height:400px;}
-  .acc-body-inner{padding:0 4px 24px;font-size:13.5px;line-height:1.9;color:var(--text-dim);}
-  .acc-body-inner b{color:var(--text);display:block;margin-top:12px;font-weight:500;}
-  .acc-body-inner b:first-child{margin-top:0;}
-
-  /* ---------- Component sections (Case / Dial / Strap) ---------- */
+  /* ---------- Component sections (Case / Dial / Bracelet) ---------- */
   .component{
     max-width:1400px;margin:0 auto;
     display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;
-    padding:70px 32px;border-top:1px solid var(--line);
+    padding:90px 32px;
   }
   .component.reverse .component-media{order:2;}
   .component.reverse .component-copy{order:1;}
   @media(max-width:900px){
-    .component{grid-template-columns:1fr;gap:30px;padding:50px 16px;}
+    .component{grid-template-columns:1fr;gap:30px;padding:60px 16px;}
     .component.reverse .component-media{order:1;}
     .component.reverse .component-copy{order:2;}
   }
   .component-media{
     background:radial-gradient(circle,#181818,#0b0b0c);
-    border:1px solid var(--line);
     display:flex;align-items:center;justify-content:center;
-    min-height:380px;
+    min-height:400px;
   }
-  .component-media img{width:62%;object-fit:contain;}
-  .component-copy .c-index{font-size:12px;color:var(--gold);letter-spacing:.1em;margin-bottom:14px;}
-  .component-copy h2{font-size:28px;font-weight:600;margin-bottom:16px;}
-  .component-copy p{font-size:14px;line-height:1.85;color:var(--text-dim);margin-bottom:22px;}
-  .c-specs{list-style:none;}
+  .component-media img{width:64%;object-fit:contain;}
+  .component-copy h2{font-size:26px;font-weight:300;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px;}
+  .component-copy p{font-size:14px;line-height:1.9;color:var(--text-dim);margin-bottom:22px;max-width:380px;}
+  .c-specs{list-style:none;max-width:340px;}
   .c-specs li{
     display:flex;justify-content:space-between;
     padding:12px 0;border-top:1px solid var(--line);
-    font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-dim);
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-dim);
   }
   .c-specs li span{color:var(--text);}
 
   /* ---------- Specifications (tabbed) ---------- */
-  .specs-tabbed{max-width:1000px;margin:0 auto;padding:80px 32px;border-top:1px solid var(--line);}
+  .specs-tabbed{max-width:1100px;margin:0 auto;padding:90px 32px;border-top:1px solid var(--line);}
   @media(max-width:900px){.specs-tabbed{padding:60px 16px;}}
-  .specs-tabbed .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;text-align:center;}
-  .specs-tabbed h2{font-size:28px;font-weight:600;text-align:center;margin-bottom:36px;}
-  .tab-nav{display:flex;justify-content:center;gap:0;border-bottom:1px solid var(--line);margin-bottom:36px;}
+  .specs-tabbed h2{font-size:26px;font-weight:300;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;}
+  .specs-tabbed .guide-link{font-size:11px;color:var(--gold);text-decoration:underline;text-underline-offset:3px;margin-bottom:30px;display:inline-block;}
+  .tab-nav{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:40px;}
   .tab-btn{
     background:none;border:none;color:var(--text-dim);cursor:pointer;
-    padding:14px 28px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    padding:12px 0;margin-right:30px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
     border-bottom:2px solid transparent;transition:color .2s,border-color .2s;
   }
   .tab-btn.active{color:var(--text);border-bottom-color:var(--gold);}
   .tab-panel{display:none;}
-  .tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
-  @media(max-width:700px){.tab-panel.active{grid-template-columns:1fr;}}
-  .tab-panel .t-media{background:radial-gradient(circle,#181818,#0b0b0c);border:1px solid var(--line);min-height:280px;display:flex;align-items:center;justify-content:center;}
-  .tab-panel .t-media img{width:55%;}
+  .tab-panel.active{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:center;}
+  @media(max-width:800px){.tab-panel.active{grid-template-columns:1fr;}}
+  .tab-panel .t-media{background:radial-gradient(circle,#181818,#0b0b0c);min-height:300px;display:flex;align-items:center;justify-content:center;}
+  .tab-panel .t-media img{width:58%;}
+  .tab-col h5{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
   .tab-panel ul{list-style:none;}
-  .tab-panel li{display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid var(--line);font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.03em;}
+  .tab-panel li{display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid var(--line);font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.02em;}
   .tab-panel li span{color:var(--text);}
-  .tab-panel .warranty-copy h4{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin:18px 0 8px;}
-  .tab-panel .warranty-copy h4:first-child{margin-top:0;}
-  .tab-panel .warranty-copy p{font-size:13.5px;line-height:1.8;color:var(--text-dim);}
 
-  /* ---------- Help / contact section ---------- */
-  .help-cta{
-    max-width:1400px;margin:0 auto;padding:80px 32px;border-top:1px solid var(--line);
-    text-align:center;
+  /* ---------- Others you might like ---------- */
+  .related{max-width:1400px;margin:0 auto;padding:90px 32px;border-top:1px solid var(--line);}
+  @media(max-width:900px){.related{padding:60px 16px;}}
+  .related-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;}
+  .related-head h2{font-size:26px;font-weight:300;letter-spacing:.06em;text-transform:uppercase;line-height:1.3;}
+  .related-head h2 b{display:block;font-weight:600;}
+  .related-head a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);border-bottom:1px solid var(--line);padding-bottom:4px;white-space:nowrap;}
+  .related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:900px){.related-grid{grid-template-columns:repeat(2,1fr);}}
+  .rcard .rimg{height:240px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#191919,#0b0b0c);}
+  .rcard .rimg img{width:58%;object-fit:contain;}
+  .rcard .rinfo{padding:16px 4px;}
+  .rcard .rinfo .name{font-size:12px;letter-spacing:.03em;margin-bottom:6px;text-transform:uppercase;}
+  .rcard .rinfo .rprice{font-size:12.5px;color:var(--gold);}
+
+  /* ---------- Worldwide shipping (locator-style) ---------- */
+  .locator{position:relative;height:420px;overflow:hidden;border-top:1px solid var(--line);}
+  .locator svg{width:100%;height:100%;display:block;}
+  .locator-panel{
+    position:absolute;top:0;left:0;bottom:0;width:380px;max-width:82%;
+    background:var(--bg);display:flex;flex-direction:column;justify-content:center;
+    padding:50px 40px;z-index:2;
   }
-  .help-cta .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-  .help-cta h2{font-size:28px;font-weight:600;margin-bottom:14px;}
-  .help-cta p{font-size:14px;color:var(--text-dim);max-width:480px;margin:0 auto 28px;line-height:1.7;}
-  .help-cta a{
-    display:inline-block;border:1px solid var(--gold);color:var(--gold);
-    padding:14px 36px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  .locator-panel h2{font-size:26px;font-weight:300;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px;line-height:1.3;}
+  .locator-panel h2 b{display:block;font-weight:600;}
+  .locator-panel a{
+    display:inline-block;border:1px solid var(--text);color:var(--text);
+    padding:13px 30px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;width:fit-content;
     transition:background .2s,color .2s;
   }
-  .help-cta a:hover{background:var(--gold);color:var(--bg);}
-
-  /* ---------- Story / editorial ---------- */
-  .story{
-    display:grid;grid-template-columns:1fr 1fr;min-height:520px;
-  }
-  @media(max-width:900px){.story{grid-template-columns:1fr;}}
-  .story img{width:100%;height:100%;object-fit:cover;}
-  .story-copy{
-    display:flex;flex-direction:column;justify-content:center;
-    padding:60px;background:var(--bg-elev);
-  }
-  .story-copy .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
-  .story-copy h2{font-size:30px;line-height:1.3;margin-bottom:18px;font-weight:600;}
-  .story-copy p{font-size:14px;line-height:1.8;color:var(--text-dim);margin-bottom:10px;}
-
-  /* ---------- Delivery/assurance ---------- */
-  .assurance{
-    max-width:1400px;margin:0 auto;padding:70px 32px;
-    display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;
-  }
-  @media(max-width:900px){.assurance{grid-template-columns:repeat(2,1fr);gap:36px;}}
-  .assurance .icon{width:34px;height:34px;margin:0 auto 16px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:15px;}
-  .assurance h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
-  .assurance p{font-size:12.5px;color:var(--text-dim);line-height:1.6;}
-
-  /* ---------- Related ---------- */
-  .related{max-width:1400px;margin:0 auto;padding:20px 32px 90px;}
-  .related-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:34px;}
-  .related-head .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-  .related-head h2{font-size:26px;font-weight:600;}
-  .related-head a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);border-bottom:1px solid var(--line);padding-bottom:4px;}
-  .related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
-  @media(max-width:900px){.related-grid{grid-template-columns:repeat(2,1fr);}}
-  .rcard{border:1px solid var(--line);background:var(--bg-elev);}
-  .rcard .rimg{height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#191919,#0b0b0c);}
-  .rcard .rimg img{width:60%;object-fit:contain;}
-  .rcard .rinfo{padding:16px;}
-  .rcard .rinfo .name{font-size:12.5px;letter-spacing:.03em;margin-bottom:6px;}
-  .rcard .rinfo .rprice{font-size:13px;color:var(--gold);}
-
-  /* ---------- Reviews ---------- */
-  .reviews{max-width:1400px;margin:0 auto;padding:20px 32px 100px;}
-  .reviews-head{text-align:center;margin-bottom:44px;}
-  .reviews-head .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-  .reviews-head h2{font-size:26px;font-weight:600;margin-bottom:12px;}
-  .reviews-head .stars-big{color:var(--gold);font-size:18px;letter-spacing:3px;}
-  .reviews-head .sub{font-size:12.5px;color:var(--text-dim);margin-top:6px;}
-  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  @media(max-width:900px){.review-grid{grid-template-columns:1fr;}}
-  .rev-card{border:1px solid var(--line);padding:22px;background:var(--bg-elev);}
-  .rev-card .rstars{color:var(--gold);font-size:12px;margin-bottom:10px;}
-  .rev-card .rprod{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-  .rev-card p{font-size:13px;line-height:1.7;color:var(--text-dim);margin-bottom:14px;}
-  .rev-card .rname{font-size:12px;color:var(--text);}
-  .rev-card .rdate{font-size:11px;color:var(--text-dim);}
+  .locator-panel a:hover{background:var(--text);color:var(--bg);}
 
   /* ---------- Footer ---------- */
-  footer{border-top:1px solid var(--line);padding:60px 32px 30px;}
-  .foot-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  footer{border-top:1px solid var(--line);padding:50px 32px 26px;}
+  .foot-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:36px;}
   @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;}}
-  .foot-grid .logo{font-size:18px;letter-spacing:.28em;margin-bottom:14px;}
-  .foot-grid p{font-size:12.5px;color:var(--text-dim);line-height:1.7;max-width:280px;}
   .foot-grid h5{font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;color:var(--gold);}
   .foot-grid ul{list-style:none;}
   .foot-grid li{margin-bottom:10px;font-size:12.5px;color:var(--text-dim);}
   .foot-grid li:hover{color:var(--text);}
-  .foot-bottom{max-width:1400px;margin:0 auto;padding-top:24px;border-top:1px solid var(--line);
-    display:flex;justify-content:space-between;font-size:11px;color:var(--text-dim);flex-wrap:wrap;gap:10px;}
+  .foot-bottom{
+    max-width:1400px;margin:0 auto;padding-top:22px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text-dim);flex-wrap:wrap;gap:10px;
+  }
+  .foot-social{display:flex;gap:14px;}
 
   /* ---------- Sticky buy bar ---------- */
   .sticky-bar{
@@ -322,115 +188,64 @@
     background:var(--text);color:var(--bg);border:none;padding:14px 28px;
     font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;
   }
-  @media(max-width:600px){ .sticky-bar .n{display:none;} }
+  @media(max-width:600px){ .sticky-bar .n{display:none;} .locator-panel{width:100%;max-width:100%;} }
 </style>
 </head>
 <body>
 
-<div class="announce">JOIN THE VEMPIRE CIRCLE — CLAIM 5% OFF YOUR FIRST ORDER</div>
-
 <header>
   <div class="nav">
+    <span class="burger">&#9776;</span>
     <a href="#" class="logo">VEMPIRE</a>
-    <nav class="links">
-      <a href="#">Shop</a>
-      <a href="#">Infinite Collection</a>
-      <a href="#">Ice Collection</a>
-      <a href="#">Straps</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact</a>
-    </nav>
     <div class="icons">
-      <span>&#128269;</span>
+      <span>&#127760;</span>
       <span>&#128100;</span>
       <span>&#128722;</span>
     </div>
   </div>
 </header>
 
-<div class="crumb">
-  <a href="#">Home</a> / <a href="#">Infinite Collection</a> / <a href="#">Infinite Steel</a> / <span style="color:var(--text)">Shadow — Black / Red</span>
-</div>
-
-<section class="pdp" id="pdp-top">
-  <div class="thumbs">
-    <div class="thumb active" data-img="assets/shadow-main.png">
-      <img src="assets/shadow-main.png" alt="SHADOW front">
-    </div>
-    <div class="thumb" data-img="assets/shadow-1.png">
-      <img src="assets/shadow-1.png" alt="SHADOW angle">
-    </div>
-    <div class="thumb" data-img="assets/shadow-2.png">
-      <img src="assets/shadow-2.png" alt="SHADOW dial detail">
-    </div>
-    <div class="thumb" data-img="assets/shadow-wrist.webp">
-      <img src="assets/shadow-wrist.webp" alt="SHADOW worn on wrist">
-    </div>
-  </div>
-
-  <div class="gallery-main" id="galleryMain">
-    <span class="gallery-badge">Limited Availability</span>
-    <img id="mainImg" src="assets/shadow-main.png" alt="SHADOW - Black / Red">
-    <div class="gallery-dots">
-      <span class="active"></span><span></span><span></span><span></span>
-    </div>
-  </div>
-
-  <div class="buy-panel">
+<section class="hero" id="pdp-top">
+  <div class="hero-copy">
     <div class="eyebrow">Infinite Steel Collection</div>
-    <h1>SHADOW — BLACK / RED</h1>
-    <div class="stars">★★★★★ <span>3 reviews</span></div>
-    <div class="price-row"><span class="price">€299,00</span></div>
-    <div class="stock">5 stocks left · limited availability</div>
-    <p class="desc">SHADOW moves through darkness with sharp contrast. Featuring a black dial with red accents, stainless steel strap, 316L case and sapphire crystal, it ensures durability and precision. Water-resistant up to 5 ATM.</p>
-
-    <div class="variant-block">
-      <div class="label">Strap Option <b>Steel Bracelet (Included)</b></div>
-      <div class="swatches">
-        <div class="swatch active"><img src="assets/shadow-main.png" alt="Steel"></div>
-        <div class="swatch"><img src="assets/strap-gold.png" alt="Gold Steel"></div>
-        <div class="swatch"><img src="assets/strap-rosegold.png" alt="Rose Gold Steel"></div>
-        <div class="swatch"><img src="assets/strap-silver.png" alt="Silver Steel"></div>
-        <div class="swatch"><img src="assets/strap-redleather.png" alt="Red Leather"></div>
-        <div class="swatch"><img src="assets/strap-blackleather-gold.png" alt="Black Leather Gold"></div>
-      </div>
+    <h1>SHADOW<b>Black / Red</b></h1>
+    <div class="ref-price">
+      <span>Ref. VMP-SHDW-BKRD</span>
+      <span class="price">€299,00</span>
     </div>
-
-    <div class="qty-cart">
-      <div class="qty"><button aria-label="decrease">−</button><span>1</span><button aria-label="increase">+</button></div>
-      <button class="add-cart">Add to Cart — €299,00</button>
-    </div>
-    <div class="buy-note">Free worldwide shipping · 2-year warranty · 14-day returns</div>
-
-    <div class="trust-row">
-      <div><b>316L</b>Steel Case</div>
-      <div><b>5ATM</b>Water Resist.</div>
-      <div><b>2YR</b>Warranty</div>
-      <div><b>42.5mm</b>Case Size</div>
-    </div>
+    <button class="hero-cta" id="addCartTop">Add to Cart</button>
+  </div>
+  <div class="hero-img">
+    <img src="assets/shadow-main-lg.png" alt="SHADOW — Black / Red">
   </div>
 </section>
 
+<div class="hero-desc">
+  <p>SHADOW moves through darkness with sharp contrast. Featuring a black sunburst dial with red accents, a 316L stainless steel case and bracelet, and a scratch-resistant sapphire crystal — an expression of quiet authority and everyday precision.</p>
+</div>
+
+<div class="full-bleed">
+  <img src="assets/shadow-2-xl.png" alt="SHADOW dial detail, full view">
+</div>
+
 <section class="component" id="case">
-  <div class="component-media"><img src="assets/shadow-1.png" alt="SHADOW case close-up"></div>
   <div class="component-copy">
-    <div class="c-index">01 — Case</div>
     <h2>Case</h2>
     <p>The 42.5 mm case in 316L stainless steel features a scratch-resistant sapphire crystal and a brushed-and-polished finish. The timepiece is water-resistant to 5 ATM.</p>
     <ul class="c-specs">
-      <li>Material <span>316L Stainless Steel</span></li>
-      <li>Size <span>42.5 × 47 mm</span></li>
+      <li>Size <span>42.5 mm</span></li>
+      <li>Thickness <span>12 mm</span></li>
       <li>Water Resistance <span>5 ATM</span></li>
     </ul>
   </div>
+  <div class="component-media"><img src="assets/shadow-1.png" alt="SHADOW case close-up"></div>
 </section>
 
 <section class="component reverse" id="dial">
   <div class="component-media"><img src="assets/shadow-2.png" alt="SHADOW dial close-up"></div>
   <div class="component-copy">
-    <div class="c-index">02 — Dial</div>
     <h2>Dial</h2>
-    <p>The black sunburst dial is complemented by red-accented hands and Roman numeral hour-markers, with a 60-second subdial at 6 o'clock and luminous coating for low-light legibility.</p>
+    <p>The black sunburst dial is complemented by red-accented hands and Roman numeral hour-markers filled with luminescent material, framed by a 60-second subdial at 6 o'clock.</p>
     <ul class="c-specs">
       <li>Finish <span>Sunburst Black</span></li>
       <li>Dial Opening <span>30.5 mm</span></li>
@@ -439,23 +254,22 @@
   </div>
 </section>
 
-<section class="component" id="strap">
-  <div class="component-media"><img src="assets/shadow-wrist.webp" alt="SHADOW bracelet worn on wrist"></div>
+<section class="component" id="bracelet">
   <div class="component-copy">
-    <div class="c-index">03 — Strap</div>
-    <h2>Strap</h2>
-    <p>The 316L stainless steel bracelet uses a quick-release interchangeable system, letting you switch between steel and leather strap options to match the moment.</p>
+    <h2>Bracelet</h2>
+    <p>The 316L stainless steel bracelet is fitted with a quick-release interchangeable system, secured by a butterfly clasp for a comfortable, balanced fit.</p>
     <ul class="c-specs">
-      <li>Material <span>316L Steel / Leather</span></li>
+      <li>Material <span>316L Stainless Steel</span></li>
       <li>Strap Size <span>24 × 22 mm</span></li>
-      <li>System <span>Quick-Release</span></li>
+      <li>Clasp <span>Butterfly, Quick-Release</span></li>
     </ul>
   </div>
+  <div class="component-media"><img src="assets/shadow-wrist.webp" alt="SHADOW bracelet worn on wrist"></div>
 </section>
 
 <section class="specs-tabbed">
-  <div class="eyebrow">Every Detail</div>
   <h2>Specifications</h2>
+  <a class="guide-link" href="#">View interactive user guide</a>
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab(this,'watch')">Watch</button>
     <button class="tab-btn" onclick="switchTab(this,'movement')">Movement</button>
@@ -463,133 +277,117 @@
   </div>
 
   <div class="tab-panel active" data-panel="watch">
+    <div class="tab-col">
+      <h5>Case</h5>
+      <ul>
+        <li>Material <span>316L Steel</span></li>
+        <li>Water Resistance <span>5 ATM</span></li>
+        <li>Size <span>42.5 mm</span></li>
+      </ul>
+    </div>
     <div class="t-media"><img src="assets/shadow-main.png" alt="SHADOW full watch"></div>
-    <ul>
-      <li>Case Material <span>316L Stainless Steel</span></li>
-      <li>Case Size <span>42.5 × 47 mm</span></li>
-      <li>Crystal <span>Sapphire</span></li>
-      <li>Dial <span>Sunburst, Black / Red</span></li>
-      <li>Water Resistance <span>5 ATM</span></li>
-      <li>Strap <span>Interchangeable, 24 × 22 mm</span></li>
-    </ul>
+    <div class="tab-col">
+      <h5>Dial &amp; Bracelet</h5>
+      <ul>
+        <li>Dial <span>Sunburst, Black / Red</span></li>
+        <li>Crystal <span>Sapphire</span></li>
+        <li>Bracelet <span>316L Steel, Interchangeable</span></li>
+      </ul>
+    </div>
   </div>
 
   <div class="tab-panel" data-panel="movement">
+    <div class="tab-col">
+      <h5>Movement</h5>
+      <ul>
+        <li>Type <span>Miyota Japanese Quartz</span></li>
+        <li>Functions <span>Hours, Minutes, Seconds</span></li>
+      </ul>
+    </div>
     <div class="t-media"><img src="assets/shadow-2.png" alt="SHADOW movement detail"></div>
-    <ul>
-      <li>Movement <span>Miyota Japanese Quartz</span></li>
-      <li>Functions <span>Hours, Minutes, Seconds</span></li>
-      <li>Subdial <span>60-Second, 6 O'Clock</span></li>
-      <li>Hands <span>Luminous Coating</span></li>
-      <li>Crown Size <span>6 mm</span></li>
-    </ul>
+    <div class="tab-col">
+      <h5>Details</h5>
+      <ul>
+        <li>Subdial <span>60-Sec, 6 O'Clock</span></li>
+        <li>Crown Size <span>6 mm</span></li>
+      </ul>
+    </div>
   </div>
 
   <div class="tab-panel" data-panel="warranty">
+    <div class="tab-col">
+      <h5>2-Year Warranty</h5>
+      <ul>
+        <li>Coverage <span>Manufacturing Defects</span></li>
+        <li>Region <span>International</span></li>
+      </ul>
+    </div>
     <div class="t-media"><img src="assets/shadow-1.png" alt="SHADOW warranty"></div>
-    <div class="warranty-copy">
-      <h4>2-Year International Warranty</h4>
-      <p>Every VEMPIRE timepiece is guaranteed against manufacturing defects for 2 years from date of purchase.</p>
-      <h4>14-Day Free Returns</h4>
-      <p>Not the right fit? Return within 14 days, hassle-free and fully guaranteed — no additional cost.</p>
+    <div class="tab-col">
+      <h5>Returns</h5>
+      <ul>
+        <li>Window <span>14 Days</span></li>
+        <li>Cost <span>Free</span></li>
+      </ul>
     </div>
   </div>
-</section>
-
-<section class="story">
-  <img src="assets/shadow-wrist.webp" alt="SHADOW worn on wrist">
-  <div class="story-copy">
-    <div class="eyebrow">Built For Authority</div>
-    <h2>Designed to be worn</h2>
-    <p>The SHADOW blends deep black tones with sharp red accents, created for those who lead through presence, control, and quiet authority.</p>
-    <p>Bold without speaking. Powerful without trying.</p>
-  </div>
-</section>
-
-<section class="assurance">
-  <div><div class="icon">✓</div><h4>Free Shipping</h4><p>Complimentary worldwide shipping, fully insured and securely delivered.</p></div>
-  <div><div class="icon">✓</div><h4>2-Year Warranty</h4><p>Premium craftsmanship with 2-year international warranty.</p></div>
-  <div><div class="icon">✓</div><h4>14-Day Returns</h4><p>Return within 14 days, hassle-free and fully guaranteed.</p></div>
-  <div><div class="icon">✓</div><h4>Pay Later</h4><p>Flexible installment payment options with Klarna.</p></div>
 </section>
 
 <section class="related">
   <div class="related-head">
-    <div>
-      <div class="eyebrow">The Infinite Collection</div>
-      <h2>You Might Also Like</h2>
-    </div>
-    <a href="#">Explore Collection →</a>
+    <h2>Others You<b>Might Like</b></h2>
+    <a href="#">Browse All Watches</a>
   </div>
   <div class="related-grid">
     <div class="rcard">
       <div class="rimg"><img src="assets/rel-imperial.png" alt="Imperial"></div>
-      <div class="rinfo"><div class="name">IMPERIAL - GREEN / GOLD</div><div class="rprice">€289,00</div></div>
+      <div class="rinfo"><div class="name">Imperial — Green / Gold</div><div class="rprice">€289,00</div></div>
     </div>
     <div class="rcard">
       <div class="rimg"><img src="assets/rel-azure.jpg" alt="Azure"></div>
-      <div class="rinfo"><div class="name">AZURE - BLUE / SILVER</div><div class="rprice">€279,00</div></div>
+      <div class="rinfo"><div class="name">Azure — Blue / Silver</div><div class="rprice">€279,00</div></div>
     </div>
     <div class="rcard">
       <div class="rimg"><img src="assets/rel-phoenix.png" alt="Phoenix"></div>
-      <div class="rinfo"><div class="name">PHOENIX - RED / ROSE GOLD</div><div class="rprice">€239,00</div></div>
+      <div class="rinfo"><div class="name">Phoenix — Red / Rose Gold</div><div class="rprice">€239,00</div></div>
     </div>
     <div class="rcard">
       <div class="rimg"><img src="assets/rel-venom.png" alt="Venom"></div>
-      <div class="rinfo"><div class="name">VENOM - GREEN / GOLD</div><div class="rprice">€289,00</div></div>
+      <div class="rinfo"><div class="name">Venom — Green / Gold</div><div class="rprice">€289,00</div></div>
     </div>
   </div>
 </section>
 
-<section class="reviews">
-  <div class="reviews-head">
-    <div class="eyebrow">Trusted by Vempire Customers</div>
-    <h2>Refined Timepieces Loved by Our Community</h2>
-    <div class="stars-big">★★★★★</div>
-    <div class="sub">Excellent — Based on over 1,250+ reviews</div>
+<section class="locator">
+  <svg viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <rect width="800" height="420" fill="#141416"/>
+    <g fill="#232326">
+      <circle cx="40" cy="60" r="3"/><circle cx="60" cy="70" r="3"/><circle cx="80" cy="55" r="3"/><circle cx="100" cy="75" r="3"/><circle cx="120" cy="60" r="3"/><circle cx="140" cy="80" r="3"/><circle cx="160" cy="65" r="3"/><circle cx="180" cy="85" r="3"/><circle cx="200" cy="70" r="3"/><circle cx="220" cy="90" r="3"/><circle cx="240" cy="75" r="3"/><circle cx="260" cy="95" r="3"/><circle cx="280" cy="80" r="3"/><circle cx="300" cy="100" r="3"/><circle cx="320" cy="85" r="3"/><circle cx="340" cy="105" r="3"/><circle cx="360" cy="90" r="3"/><circle cx="380" cy="110" r="3"/><circle cx="400" cy="95" r="3"/><circle cx="420" cy="115" r="3"/><circle cx="440" cy="100" r="3"/><circle cx="460" cy="120" r="3"/><circle cx="480" cy="105" r="3"/><circle cx="500" cy="125" r="3"/><circle cx="520" cy="110" r="3"/><circle cx="540" cy="130" r="3"/><circle cx="560" cy="115" r="3"/><circle cx="580" cy="135" r="3"/><circle cx="600" cy="120" r="3"/><circle cx="620" cy="140" r="3"/><circle cx="640" cy="125" r="3"/><circle cx="660" cy="145" r="3"/><circle cx="680" cy="130" r="3"/><circle cx="700" cy="150" r="3"/><circle cx="720" cy="135" r="3"/><circle cx="740" cy="155" r="3"/><circle cx="760" cy="140" r="3"/>
+      <circle cx="50" cy="160" r="3"/><circle cx="90" cy="170" r="3"/><circle cx="130" cy="155" r="3"/><circle cx="170" cy="175" r="3"/><circle cx="210" cy="160" r="3"/><circle cx="250" cy="180" r="3"/><circle cx="290" cy="165" r="3"/><circle cx="330" cy="185" r="3"/><circle cx="370" cy="170" r="3"/><circle cx="410" cy="190" r="3"/><circle cx="450" cy="175" r="3"/><circle cx="490" cy="195" r="3"/><circle cx="530" cy="180" r="3"/><circle cx="570" cy="200" r="3"/><circle cx="610" cy="185" r="3"/><circle cx="650" cy="205" r="3"/><circle cx="690" cy="190" r="3"/><circle cx="730" cy="210" r="3"/>
+      <circle cx="70" cy="230" r="3"/><circle cx="110" cy="245" r="3"/><circle cx="150" cy="230" r="3"/><circle cx="190" cy="250" r="3"/><circle cx="230" cy="235" r="3"/><circle cx="270" cy="255" r="3"/><circle cx="310" cy="240" r="3"/><circle cx="350" cy="260" r="3"/><circle cx="390" cy="245" r="3"/><circle cx="430" cy="265" r="3"/><circle cx="470" cy="250" r="3"/><circle cx="510" cy="270" r="3"/><circle cx="550" cy="255" r="3"/><circle cx="590" cy="275" r="3"/><circle cx="630" cy="260" r="3"/><circle cx="670" cy="280" r="3"/><circle cx="710" cy="265" r="3"/>
+      <circle cx="100" cy="310" r="3"/><circle cx="150" cy="320" r="3"/><circle cx="200" cy="305" r="3"/><circle cx="250" cy="325" r="3"/><circle cx="300" cy="310" r="3"/><circle cx="350" cy="330" r="3"/><circle cx="400" cy="315" r="3"/><circle cx="450" cy="335" r="3"/><circle cx="500" cy="320" r="3"/><circle cx="550" cy="340" r="3"/><circle cx="600" cy="325" r="3"/><circle cx="650" cy="345" r="3"/>
+    </g>
+    <circle cx="180" cy="150" r="6" fill="#b89b6b"/>
+    <circle cx="420" cy="200" r="6" fill="#b89b6b"/>
+    <circle cx="600" cy="170" r="6" fill="#b89b6b"/>
+    <circle cx="660" cy="260" r="6" fill="#b89b6b"/>
+    <circle cx="340" cy="270" r="6" fill="#b89b6b"/>
+  </svg>
+  <div class="locator-panel">
+    <h2>Worldwide<b>Shipping</b></h2>
+    <a href="#">Track Your Order</a>
   </div>
-  <div class="review-grid">
-    <div class="rev-card">
-      <div class="rstars">★★★★★</div>
-      <div class="rprod">Shadow - Black / Red</div>
-      <p>"The black case and red details caught my eye immediately. In person it looks even better — a unique watch without being over the top."</p>
-      <div class="rname">Oscar V.</div><div class="rdate">May 21, 2026</div>
-    </div>
-    <div class="rev-card">
-      <div class="rstars">★★★★★</div>
-      <div class="rprod">Azure - Blue / Silver</div>
-      <p>"Beautiful watch with a gorgeous blue-silver combination. Comfortable to wear, not too heavy or too light. Already got several compliments."</p>
-      <div class="rname">Jeffrey van V.</div><div class="rdate">Nov 19, 2025</div>
-    </div>
-    <div class="rev-card">
-      <div class="rstars">★★★★★</div>
-      <div class="rprod">Imperial - Green / Gold</div>
-      <p>"The dial details are genuinely impressive. Feels premium — first hesitated but absolutely no regrets. Top quality."</p>
-      <div class="rname">Jason B.</div><div class="rdate">Feb 5, 2026</div>
-    </div>
-  </div>
-</section>
-
-<section class="help-cta">
-  <div class="eyebrow">We're Here to Help</div>
-  <h2>Need Help Choosing Your Timepiece?</h2>
-  <p>Our team can help you find the right fit, strap and finish for your style — reach out and we'll get back within 24 hours.</p>
-  <a href="#">Contact Us</a>
 </section>
 
 <footer>
   <div class="foot-grid">
     <div>
-      <div class="logo">VEMPIRE</div>
-      <p>PRECISION. AUTHORITY. LEGACY. Own your time. Define your legacy.</p>
-    </div>
-    <div>
-      <h5>Shop</h5>
-      <ul><li>All Products</li><li>Infinite Collection</li><li>Ice Collection</li><li>Infinite Leather</li><li>Infinite Steel</li><li>Straps</li></ul>
+      <h5>Watches</h5>
+      <ul><li>All Watches</li><li>Infinite Collection</li><li>Ice Collection</li><li>Straps</li></ul>
     </div>
     <div>
       <h5>Services</h5>
-      <ul><li>FAQs</li><li>Watch Care Guide</li><li>User Manual</li><li>Extend Warranty</li><li>Contact Us</li></ul>
+      <ul><li>Contact Us</li><li>Extend Warranty</li><li>Watch Care Guide</li><li>FAQ</li></ul>
     </div>
     <div>
       <h5>Legal</h5>
@@ -602,7 +400,9 @@
   </div>
   <div class="foot-bottom">
     <span>© 2026 VEMPIRE Collection. All rights reserved.</span>
-    <span>Visa · Mastercard · PayPal · Apple Pay · Klarna</span>
+    <div class="foot-social">
+      <span>IG</span><span>FB</span><span>TT</span>
+    </div>
   </div>
 </footer>
 
@@ -611,37 +411,10 @@
     <img src="assets/shadow-main.png" alt="Shadow">
     <div><div class="n">SHADOW — Black / Red</div><div class="p">€299,00</div></div>
   </div>
-  <button>Add to Cart</button>
+  <button id="addCartSticky">Add to Cart</button>
 </div>
 
 <script>
-  // Thumbnail gallery swap
-  document.querySelectorAll('.thumb').forEach(t=>{
-    t.addEventListener('click',()=>{
-      document.querySelectorAll('.thumb').forEach(x=>x.classList.remove('active'));
-      t.classList.add('active');
-      document.getElementById('mainImg').src = t.getAttribute('data-img');
-      const idx = Array.from(t.parentNode.children).indexOf(t);
-      document.querySelectorAll('.gallery-dots span').forEach((d,i)=>d.classList.toggle('active', i===idx));
-    });
-  });
-
-  // Swatch select
-  document.querySelectorAll('.swatch').forEach(s=>{
-    s.addEventListener('click',()=>{
-      document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('active'));
-      s.classList.add('active');
-    });
-  });
-
-  // Accordion (legacy, unused)
-  function toggleAcc(btn){
-    const item = btn.parentElement;
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.acc-item').forEach(i=>i.classList.remove('open'));
-    if(!wasOpen) item.classList.add('open');
-  }
-
   // Specifications tabs
   function switchTab(btn, name){
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
@@ -650,28 +423,12 @@
     document.querySelector(`.tab-panel[data-panel="${name}"]`).classList.add('active');
   }
 
-  // Qty stepper
-  const qtyEl = document.querySelector('.qty span');
-  let qty = 1;
-  document.querySelectorAll('.qty button')[0].addEventListener('click',()=>{ if(qty>1){qty--; qtyEl.textContent=qty;} });
-  document.querySelectorAll('.qty button')[1].addEventListener('click',()=>{ qty++; qtyEl.textContent=qty; });
-
-  // Sticky bar on scroll past buy panel
+  // Sticky bar on scroll past hero
   const bar = document.getElementById('stickyBar');
   const pdpTop = document.getElementById('pdp-top');
   window.addEventListener('scroll', ()=>{
     const rect = pdpTop.getBoundingClientRect();
     if(rect.bottom < 0){ bar.classList.add('show'); } else { bar.classList.remove('show'); }
-  });
-
-  // Zoom-follow cursor on main gallery image
-  const galleryMain = document.getElementById('galleryMain');
-  const mainImg = document.getElementById('mainImg');
-  galleryMain.addEventListener('mousemove', (e)=>{
-    const rect = galleryMain.getBoundingClientRect();
-    const x = ((e.clientX - rect.left)/rect.width)*100;
-    const y = ((e.clientY - rect.top)/rect.height)*100;
-    mainImg.style.transformOrigin = `${x}% ${y}%`;
   });
 </script>
 
