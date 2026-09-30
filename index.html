@@ -258,17 +258,21 @@
   .rcard .rinfo .rprice{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gold);}
 
   /* ---------- Worldwide shipping (locator-style) ---------- */
-  .locator{position:relative;height:320px;overflow:hidden;border-top:1px solid var(--line);}
+  .locator{position:relative;height:440px;overflow:hidden;border-top:1px solid var(--line);}
   .locator svg{width:100%;height:100%;display:block;}
+  .locator svg circle.pin{fill:var(--gold);}
+  .locator svg circle.pulse{fill:none;stroke:var(--gold);stroke-width:1;opacity:.5;transform-origin:center;transform-box:fill-box;animation:pulse-ring 2.4s ease-out infinite;}
+  @keyframes pulse-ring{ 0%{transform:scale(1);opacity:.5;} 100%{transform:scale(3.2);opacity:0;} }
   .locator-panel{
     position:absolute;top:0;left:0;bottom:0;width:400px;max-width:84%;
-    background:linear-gradient(90deg,var(--bg) 60%,transparent);
+    background:linear-gradient(90deg,var(--bg) 66%,transparent);
     display:flex;flex-direction:column;justify-content:center;
     padding:50px 44px;z-index:2;
   }
   .locator-panel .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-  .locator-panel h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:36px;margin-bottom:26px;line-height:1.15;}
+  .locator-panel h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:36px;margin-bottom:18px;line-height:1.15;}
   .locator-panel h2 b{display:block;font-weight:500;font-style:italic;color:var(--gold);}
+  .locator-panel p{font-size:13.5px;line-height:1.8;color:var(--text-dim);max-width:280px;margin-bottom:28px;}
   .locator-panel a{
     position:relative;display:inline-flex;align-items:center;gap:12px;
     border:1px solid var(--text);color:var(--text);
@@ -276,6 +280,19 @@
     transition:background .3s,color .3s,border-color .3s;
   }
   .locator-panel a:hover{background:var(--gold);border-color:var(--gold);color:var(--bg);}
+  .locator-stats{
+    position:absolute;right:0;bottom:0;z-index:2;
+    display:flex;gap:0;background:linear-gradient(0deg,var(--bg) 55%,transparent);
+    padding:28px 40px 26px;
+  }
+  .locator-stats .lstat{padding:0 26px;border-left:1px solid var(--line);text-align:left;}
+  .locator-stats .lstat:first-child{border-left:none;padding-left:0;}
+  .locator-stats .lstat b{display:block;font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold);font-weight:500;margin-bottom:4px;}
+  .locator-stats .lstat span{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);}
+  @media(max-width:700px){
+    .locator-stats{position:static;background:none;padding:24px 16px 0;justify-content:space-between;}
+    .locator-stats .lstat{padding:0 8px;}
+  }
 
   /* ---------- Footer ---------- */
   footer{border-top:1px solid var(--line);padding:64px 32px 30px;}
@@ -516,23 +533,21 @@
 </section>
 
 <section class="locator">
-  <svg viewBox="0 0 800 440" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <rect width="800" height="440" fill="#121012"/>
-    <g fill="#221f1c">
-      <circle cx="40" cy="60" r="3"/><circle cx="60" cy="70" r="3"/><circle cx="80" cy="55" r="3"/><circle cx="100" cy="75" r="3"/><circle cx="120" cy="60" r="3"/><circle cx="140" cy="80" r="3"/><circle cx="160" cy="65" r="3"/><circle cx="180" cy="85" r="3"/><circle cx="200" cy="70" r="3"/><circle cx="220" cy="90" r="3"/><circle cx="240" cy="75" r="3"/><circle cx="260" cy="95" r="3"/><circle cx="280" cy="80" r="3"/><circle cx="300" cy="100" r="3"/><circle cx="320" cy="85" r="3"/><circle cx="340" cy="105" r="3"/><circle cx="360" cy="90" r="3"/><circle cx="380" cy="110" r="3"/><circle cx="400" cy="95" r="3"/><circle cx="420" cy="115" r="3"/><circle cx="440" cy="100" r="3"/><circle cx="460" cy="120" r="3"/><circle cx="480" cy="105" r="3"/><circle cx="500" cy="125" r="3"/><circle cx="520" cy="110" r="3"/><circle cx="540" cy="130" r="3"/><circle cx="560" cy="115" r="3"/><circle cx="580" cy="135" r="3"/><circle cx="600" cy="120" r="3"/><circle cx="620" cy="140" r="3"/><circle cx="640" cy="125" r="3"/><circle cx="660" cy="145" r="3"/><circle cx="680" cy="130" r="3"/><circle cx="700" cy="150" r="3"/><circle cx="720" cy="135" r="3"/><circle cx="740" cy="155" r="3"/><circle cx="760" cy="140" r="3"/>
-      <circle cx="50" cy="160" r="3"/><circle cx="90" cy="170" r="3"/><circle cx="130" cy="155" r="3"/><circle cx="170" cy="175" r="3"/><circle cx="210" cy="160" r="3"/><circle cx="250" cy="180" r="3"/><circle cx="290" cy="165" r="3"/><circle cx="330" cy="185" r="3"/><circle cx="370" cy="170" r="3"/><circle cx="410" cy="190" r="3"/><circle cx="450" cy="175" r="3"/><circle cx="490" cy="195" r="3"/><circle cx="530" cy="180" r="3"/><circle cx="570" cy="200" r="3"/><circle cx="610" cy="185" r="3"/><circle cx="650" cy="205" r="3"/><circle cx="690" cy="190" r="3"/><circle cx="730" cy="210" r="3"/>
-      <circle cx="70" cy="230" r="3"/><circle cx="110" cy="245" r="3"/><circle cx="150" cy="230" r="3"/><circle cx="190" cy="250" r="3"/><circle cx="230" cy="235" r="3"/><circle cx="270" cy="255" r="3"/><circle cx="310" cy="240" r="3"/><circle cx="350" cy="260" r="3"/><circle cx="390" cy="245" r="3"/><circle cx="430" cy="265" r="3"/><circle cx="470" cy="250" r="3"/><circle cx="510" cy="270" r="3"/><circle cx="550" cy="255" r="3"/><circle cx="590" cy="275" r="3"/><circle cx="630" cy="260" r="3"/><circle cx="670" cy="280" r="3"/><circle cx="710" cy="265" r="3"/>
-      <circle cx="100" cy="310" r="3"/><circle cx="150" cy="320" r="3"/><circle cx="200" cy="305" r="3"/><circle cx="250" cy="325" r="3"/><circle cx="300" cy="310" r="3"/><circle cx="350" cy="330" r="3"/><circle cx="400" cy="315" r="3"/><circle cx="450" cy="335" r="3"/><circle cx="500" cy="320" r="3"/><circle cx="550" cy="340" r="3"/><circle cx="600" cy="325" r="3"/><circle cx="650" cy="345" r="3"/>
-    </g>
-    <circle cx="180" cy="150" r="6" fill="#cbab72"/>
-    <circle cx="420" cy="200" r="6" fill="#cbab72"/>
-    <circle cx="600" cy="170" r="6" fill="#cbab72"/>
-    <circle cx="660" cy="260" r="6" fill="#cbab72"/>
-    <circle cx="340" cy="270" r="6" fill="#cbab72"/>
+  <svg viewBox="0 0 800 320" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <rect width="800" height="320" fill="#121012"/>
+    <g fill="#2c2822" id="worldDots"></g>
+    <g id="routeLines" stroke="#cbab72" stroke-width="1" fill="none" opacity="0.35"></g>
+    <g id="pins"></g>
   </svg>
+  <div class="locator-stats">
+    <div class="lstat"><b>150+</b><span>Countries Served</span></div>
+    <div class="lstat"><b>2–5</b><span>Day Delivery</span></div>
+    <div class="lstat"><b>100%</b><span>Fully Insured</span></div>
+  </div>
   <div class="locator-panel">
     <div class="eyebrow">Direct To You</div>
     <h2>Worldwide<b>Shipping</b></h2>
+    <p>Every VEMPIRE order ships insured from our EU hub, tracked door to door wherever you are.</p>
     <a href="#">Track Your Order</a>
   </div>
 </section>
@@ -577,6 +592,44 @@
 </div>
 
 <script>
+  // World map: populate dots, pins, and route lines
+  (function(){
+    var dots = [[176.5,37.8],[107.3,59.6],[194.9,109.4],[135.2,38.3],[96.5,90.6],[178.5,94.9],[96.9,99.8],[208.1,111.8],[119.6,52.1],[236.9,72.0],[216.0,101.4],[208.4,115.3],[156.9,142.0],[126.9,95.7],[212.6,103.0],[218.7,98.5],[188.9,40.0],[98.3,66.8],[70.2,60.6],[74.2,65.6],[175.8,75.1],[125.3,58.0],[105.7,138.0],[178.1,102.0],[87.5,115.2],[86.0,76.7],[160.8,110.3],[215.1,120.4],[114.9,64.5],[221.5,69.6],[179.5,78.5],[228.8,85.5],[105.3,62.1],[161.7,63.9],[166.1,133.8],[130.9,59.1],[244.5,91.0],[75.8,104.0],[205.5,81.4],[67.1,77.0],[244.3,93.2],[184.5,94.1],[105.7,105.5],[76.2,82.8],[141.2,139.9],[221.4,64.0],[150.1,54.7],[111.7,105.3],[170.7,51.8],[199.9,94.3],[202.9,93.3],[113.4,41.4],[71.3,88.5],[200.5,49.1],[145.3,95.5],[188.9,290.9],[203.1,191.8],[213.5,269.5],[183.1,206.8],[204.4,237.6],[175.9,193.7],[195.4,248.2],[185.7,193.0],[171.4,254.7],[185.6,295.8],[186.4,260.3],[184.3,179.8],[249.2,245.7],[207.5,277.7],[237.7,188.6],[173.7,224.7],[203.1,230.1],[230.6,261.0],[201.2,210.9],[242.6,197.3],[182.1,227.3],[203.0,201.8],[187.5,298.5],[204.9,289.2],[214.5,167.6],[241.4,184.9],[208.7,192.1],[201.1,168.8],[188.9,277.6],[206.0,223.5],[215.0,267.8],[178.9,204.5],[252.2,246.9],[213.8,272.2],[170.1,247.6],[210.3,287.9],[218.6,261.3],[186.2,178.0],[245.1,196.9],[218.5,252.9],[422.7,80.9],[432.1,105.4],[403.4,90.1],[406.5,67.7],[445.5,61.0],[413.5,92.6],[391.5,72.1],[408.9,105.3],[418.3,51.0],[460.0,89.2],[440.1,109.1],[458.5,61.0],[444.7,105.7],[394.6,78.7],[409.5,82.3],[449.6,54.3],[442.1,58.5],[429.0,103.4],[423.1,59.4],[442.3,58.3],[451.7,78.6],[423.5,40.7],[466.4,78.2],[460.1,80.8],[412.7,102.9],[456.7,100.2],[498.9,148.6],[427.4,131.4],[485.8,256.5],[444.7,214.3],[489.2,256.0],[436.5,263.9],[488.2,253.3],[489.2,157.7],[486.6,132.3],[424.5,245.7],[450.6,163.8],[487.5,151.4],[436.1,253.3],[470.6,178.9],[507.9,200.8],[411.9,184.5],[480.1,165.2],[466.7,196.8],[442.4,207.3],[428.0,228.4],[459.2,230.1],[481.6,222.3],[440.1,126.2],[473.1,167.8],[434.5,250.7],[479.2,163.1],[434.0,180.3],[444.3,162.3],[414.0,182.3],[503.4,223.4],[499.3,213.5],[433.1,202.7],[447.3,207.8],[472.0,189.4],[448.6,149.2],[452.1,259.2],[487.6,142.2],[409.3,197.5],[469.6,168.6],[490.0,235.2],[474.0,150.9],[426.9,191.0],[445.6,215.8],[421.4,226.4],[454.4,154.0],[482.6,238.2],[411.7,183.0],[457.0,123.0],[534.8,135.3],[580.4,129.2],[611.0,148.5],[676.1,104.6],[638.2,90.6],[662.7,96.2],[677.4,121.7],[584.4,58.7],[534.4,107.9],[648.5,92.8],[617.9,60.7],[497.0,62.1],[539.8,66.6],[598.8,43.0],[530.9,115.2],[635.4,33.3],[569.7,95.5],[571.5,51.9],[572.4,142.6],[608.5,115.4],[668.5,124.5],[557.4,123.0],[572.2,122.2],[600.1,103.4],[528.5,53.5],[575.9,28.8],[553.9,113.3],[568.9,46.5],[582.8,41.6],[616.9,28.5],[566.7,98.4],[486.0,108.6],[509.9,85.0],[491.1,74.3],[526.6,67.5],[647.5,74.3],[645.4,133.2],[535.5,35.6],[484.3,95.1],[623.0,126.6],[623.4,123.1],[507.8,112.0],[604.1,53.3],[633.9,124.7],[516.9,103.9],[644.5,39.9],[548.6,113.1],[690.8,76.6],[637.3,34.9],[631.9,106.5],[502.4,125.4],[667.1,103.1],[652.2,70.1],[574.2,73.2],[591.3,69.4],[666.9,131.9],[619.8,132.7],[635.6,81.6],[539.4,130.1],[598.4,87.9],[575.8,120.0],[539.0,135.7],[674.0,56.7],[582.2,104.3],[563.4,28.7],[667.2,48.6],[526.7,128.7],[554.9,139.4],[634.3,60.9],[498.8,118.6],[659.1,262.9],[675.2,257.3],[659.3,264.6],[627.4,236.1],[675.3,240.3],[666.5,248.7],[662.5,246.3],[679.7,241.5],[676.2,238.5],[640.1,231.0],[635.4,231.0],[662.9,263.1],[634.8,235.8],[658.7,261.2],[698.1,251.2],[642.6,230.0],[635.5,236.4],[662.7,238.7],[697.9,252.7],[675.8,231.3]];
+    var dotsG = document.getElementById('worldDots');
+    if(dotsG){
+      var frag = document.createDocumentFragment();
+      dots.forEach(function(p){
+        var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        c.setAttribute('cx',p[0]); c.setAttribute('cy',p[1]); c.setAttribute('r',1.8);
+        frag.appendChild(c);
+      });
+      dotsG.appendChild(frag);
+    }
+    var origin = [430,75];
+    var destinations = [[150,90],[590,90],[660,250],[210,235]];
+    var linesG = document.getElementById('routeLines');
+    var pinsG = document.getElementById('pins');
+    function addPin(x,y){
+      var NS='http://www.w3.org/2000/svg';
+      var pulse = document.createElementNS(NS,'circle');
+      pulse.setAttribute('cx',x); pulse.setAttribute('cy',y); pulse.setAttribute('r',5); pulse.setAttribute('class','pulse');
+      var pin = document.createElementNS(NS,'circle');
+      pin.setAttribute('cx',x); pin.setAttribute('cy',y); pin.setAttribute('r',4); pin.setAttribute('class','pin');
+      pinsG.appendChild(pulse); pinsG.appendChild(pin);
+    }
+    if(linesG && pinsG){
+      addPin(origin[0], origin[1]);
+      destinations.forEach(function(d){
+        var x=d[0], y=d[1];
+        var line = document.createElementNS('http://www.w3.org/2000/svg','path');
+        var mx = (origin[0]+x)/2, my = Math.min(origin[1],y) - 40;
+        line.setAttribute('d', 'M'+origin[0]+','+origin[1]+' Q'+mx+','+my+' '+x+','+y);
+        linesG.appendChild(line);
+        addPin(x,y);
+      });
+    }
+  })();
+
   // Hero image slider
   let slideIndex = 0;
   const slideCount = 3;
