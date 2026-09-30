@@ -65,20 +65,34 @@
     background:radial-gradient(ellipse at 50% 45%,#1c1a14 0%,#0a0a0b 68%);
     min-height:520px;position:relative;
   }
-  .hero-img img{width:56%;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));}
-  .hero-desc{max-width:1440px;margin:0 auto;padding:0 32px 70px;}
-  @media(max-width:900px){ .hero-desc{padding:0 16px 46px;} }
+  .hero-img img{width:72%;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));}
+  .hero-desc{max-width:1440px;margin:0 auto;padding:0 32px 56px;}
+  @media(max-width:900px){ .hero-desc{padding:0 16px 40px;} }
   .hero-desc p{max-width:640px;font-size:14.5px;line-height:1.9;color:var(--text-dim);}
 
-  /* ---------- Showcase (premium centered display, replaces full-bleed) ---------- */
-  .showcase{
-    width:100%;min-height:78vh;
-    display:flex;align-items:center;justify-content:center;
+  /* ---------- Showcase slider (image carousel) ---------- */
+  .slider{
+    position:relative;width:100%;min-height:74vh;
     background:radial-gradient(ellipse at 50% 50%,#181510 0%,#0a0a0b 62%);
     border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    padding:60px 32px;
+    overflow:hidden;
   }
-  .showcase img{width:min(46%,480px);object-fit:contain;filter:drop-shadow(0 40px 60px rgba(0,0,0,.6));}
+  .slider-track{display:flex;height:74vh;transition:transform .5s cubic-bezier(.65,0,.35,1);}
+  .slide{flex:0 0 100%;display:flex;align-items:center;justify-content:center;}
+  .slide img{width:min(58%,620px);object-fit:contain;filter:drop-shadow(0 40px 60px rgba(0,0,0,.6));}
+  .slider-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:44px;height:44px;border:1px solid var(--line);background:rgba(10,10,11,.6);
+    color:var(--text);display:flex;align-items:center;justify-content:center;
+    cursor:pointer;font-size:16px;z-index:3;transition:border-color .2s;
+  }
+  .slider-arrow:hover{border-color:var(--gold);color:var(--gold);}
+  .slider-arrow.prev{left:24px;}
+  .slider-arrow.next{right:24px;}
+  .slider-dots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3;}
+  .slider-dots span{width:6px;height:6px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .2s;}
+  .slider-dots span.active{background:var(--gold);}
+  @media(max-width:600px){ .slide img{width:78%;} .slider-arrow{width:36px;height:36px;font-size:13px;} }
 
   /* ---------- Component sections (Case / Dial / Bracelet) ---------- */
   .component{
@@ -98,7 +112,7 @@
     display:flex;align-items:center;justify-content:center;
     min-height:420px;
   }
-  .component-media img{width:60%;object-fit:contain;filter:drop-shadow(0 24px 34px rgba(0,0,0,.55));}
+  .component-media img{width:74%;object-fit:contain;filter:drop-shadow(0 24px 34px rgba(0,0,0,.55));}
   .component-copy h2{font-size:27px;font-weight:300;letter-spacing:.07em;text-transform:uppercase;margin-bottom:20px;}
   .component-copy p{font-size:14px;line-height:1.95;color:var(--text-dim);margin-bottom:26px;max-width:380px;}
   .c-specs{list-style:none;max-width:340px;}
@@ -128,7 +142,7 @@
     background:radial-gradient(ellipse at 50% 45%,#181510 0%,#0e0d0c 70%);
     min-height:300px;display:flex;align-items:center;justify-content:center;
   }
-  .tab-panel .t-media img{width:54%;filter:drop-shadow(0 18px 26px rgba(0,0,0,.5));}
+  .tab-panel .t-media img{width:66%;filter:drop-shadow(0 18px 26px rgba(0,0,0,.5));}
   .tab-col h5{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
   .tab-panel ul{list-style:none;}
   .tab-panel li{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line);font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.02em;}
@@ -147,7 +161,7 @@
     height:250px;display:flex;align-items:center;justify-content:center;
     background:radial-gradient(ellipse at 50% 45%,#161410 0%,#0e0d0c 72%);
   }
-  .rcard .rimg img{width:54%;object-fit:contain;filter:drop-shadow(0 16px 22px rgba(0,0,0,.5));}
+  .rcard .rimg img{width:64%;object-fit:contain;filter:drop-shadow(0 16px 22px rgba(0,0,0,.5));}
   .rcard .rinfo{padding:16px 4px;}
   .rcard .rinfo .name{font-size:12px;letter-spacing:.04em;margin-bottom:6px;text-transform:uppercase;}
   .rcard .rinfo .rprice{font-size:12.5px;color:var(--gold);}
@@ -239,8 +253,19 @@
   <p>IMPERIAL commands attention with bold authority. Featuring a green sunburst dial, a gold-toned stainless steel case and bracelet, and a scratch-resistant sapphire crystal — built for durability, control, and quiet dominance.</p>
 </div>
 
-<div class="showcase">
-  <img src="assets/imperial-2.png" alt="IMPERIAL dial detail">
+<div class="slider" id="heroSlider">
+  <div class="slider-track" id="sliderTrack">
+    <div class="slide"><img src="assets/imperial-main-xl.png" alt="IMPERIAL — front view"></div>
+    <div class="slide"><img src="assets/imperial-1.png" alt="IMPERIAL — case angle"></div>
+    <div class="slide"><img src="assets/imperial-2.png" alt="IMPERIAL — dial detail"></div>
+  </div>
+  <button class="slider-arrow prev" onclick="moveSlide(-1)" aria-label="Previous slide">&#8592;</button>
+  <button class="slider-arrow next" onclick="moveSlide(1)" aria-label="Next slide">&#8594;</button>
+  <div class="slider-dots" id="sliderDots">
+    <span class="active" onclick="goSlide(0)"></span>
+    <span onclick="goSlide(1)"></span>
+    <span onclick="goSlide(2)"></span>
+  </div>
 </div>
 
 <section class="component" id="case">
@@ -430,6 +455,24 @@
 </div>
 
 <script>
+  // Hero image slider
+  let slideIndex = 0;
+  const slideCount = 3;
+  const sliderTrack = document.getElementById('sliderTrack');
+  const sliderDots = document.querySelectorAll('#sliderDots span');
+  function renderSlide(){
+    sliderTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
+    sliderDots.forEach((d,i)=>d.classList.toggle('active', i===slideIndex));
+  }
+  function moveSlide(dir){
+    slideIndex = (slideIndex + dir + slideCount) % slideCount;
+    renderSlide();
+  }
+  function goSlide(i){
+    slideIndex = i;
+    renderSlide();
+  }
+
   function switchTab(btn, name){
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
     document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
